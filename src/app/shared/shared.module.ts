@@ -7,6 +7,6 @@ import { ParallaxDirective } from './directives/parallax.directive';
 @NgModule({
   declarations: [ParallaxDirective],
   imports: [CommonModule, FlexLayoutModule, MaterialModule],
-  exports: [CommonModule, FlexLayoutModule, MaterialModule],
+  exports: [CommonModule, FlexLayoutModule, MaterialModule, ParallaxDirective],
 })
 export class SharedModule {}
