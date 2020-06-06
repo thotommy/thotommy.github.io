@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+$port-app-primary: mat-palette($mat-grey);
+$port-app-accent: mat-palette($mat-grey, A200, A100, A400);
+$port-app-warn: mat-palette($mat-red);
+
+$port-app-theme: mat-light-theme($port-app-primary, $port-app-accent, $port-app-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($port-app-theme);
