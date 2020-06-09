@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Renderer2} from '@angular/core';
+import { ParallaxTransition } from '../shared/directives/parallax.directive';
 
 @Component({
   selector: 'app-portfolio',
@@ -7,7 +8,28 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class PortfolioComponent implements OnInit {
-  constructor() {}
+  visible = false;
 
-  ngOnInit(): void {}
+  constructor(private renderer: Renderer2) {
+  }
+
+  ngOnInit(): void {
+    this.visible = false;
+  }
+
+  action(event: ParallaxTransition) {
+    this.visible = event.startTransition;
+    if (event.startTransition) {
+      this.renderer.removeClass(event.element, 'animated');
+      this.renderer.removeClass(event.element, 'fadeInDown');
+      this.renderer.addClass(event.element, 'animated');
+      this.renderer.addClass(event.element, 'fadeOutUp');
+
+    } else {
+      this.renderer.removeClass(event.element, 'animated');
+      this.renderer.removeClass(event.element, 'fadeOutUp');
+      this.renderer.addClass(event.element, 'animated');
+      this.renderer.addClass(event.element, 'fadeInDown');
+    }
+  }
 }

@@ -1,11 +1,13 @@
 <div
-  class="splashPage animated fadeIn delay-.5s"
+  class="splashPage"
   fxLayout="column"
   fxLayoutAlign="center center"
 >
   <div
     appParallax
     [ratio]="0.1"
+    (startTransition)="action($event)"
+    class="animated fadeInDown"
     id="title"
     fxLayout="column"
     fxLayoutAlign="center center"
