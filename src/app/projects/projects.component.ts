@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioApiService } from '../portfolio-api/portfolio-api.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
   public items;
-
-  constructor() {
+  // TODO:TH No lazy routing at all for any of the pages should there be any?
+  constructor(private apiService: PortfolioApiService) {
     this.items = [];
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log(this.apiService.retrieveGitRepos());
+    this.apiService.retrieveGitRepos().subscribe((data) => {
+      console.log(data);
+      this.items = data;
+    });
+  }
 }
