@@ -1,3 +1,7 @@
-<mat-card *ngFor="let item of items; let i = index">
-  {{ item.name }}
-</mat-card>
+<div gdColumns="repeat(4, 1fr)" gdGap="16px" [@listAnimation]="items.length">
+  <div *ngFor="let item of items">
+    <div class="hey">
+      <app-tiles [tileData]="item"></app-tiles>
+    </div>
+  </div>
+</div>
