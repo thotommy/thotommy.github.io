@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, Renderer2} from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Renderer2 } from '@angular/core';
 import { ParallaxTransition } from '../shared/directives/parallax.directive';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,8 +11,7 @@ import { ParallaxTransition } from '../shared/directives/parallax.directive';
 export class PortfolioComponent implements OnInit {
   visible = false;
 
-  constructor(private renderer: Renderer2) {
-  }
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.visible = false;
@@ -24,12 +24,16 @@ export class PortfolioComponent implements OnInit {
       this.renderer.removeClass(event.element, 'fadeInDown');
       this.renderer.addClass(event.element, 'animated');
       this.renderer.addClass(event.element, 'fadeOutUp');
-
     } else {
       this.renderer.removeClass(event.element, 'animated');
       this.renderer.removeClass(event.element, 'fadeOutUp');
       this.renderer.addClass(event.element, 'animated');
       this.renderer.addClass(event.element, 'fadeInDown');
     }
+  }
+
+  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    console.log('tabChangeEvent => ', tabChangeEvent);
+    console.log('index => ', tabChangeEvent.index);
   }
 }

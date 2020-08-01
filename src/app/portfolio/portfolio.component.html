@@ -15,7 +15,10 @@
 </div>
 
 <div id="main" class="splashPage">
-  <mat-tab-group mat-align-tabs="center">
+  <mat-tab-group
+    mat-align-tabs="center"
+    (selectedTabChange)="tabChanged($event)"
+  >
     <mat-tab label="Skills">
       <app-skills></app-skills>
     </mat-tab>
