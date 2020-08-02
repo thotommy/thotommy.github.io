@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./animated-tiles.component.scss'],
 })
 export class AnimatedTilesComponent implements OnInit {
+  // TODO: TH Need to create a animated tile that shows the title when hovered
   @Input() tileData: any;
 
   constructor() {}
