@@ -1,4 +1,11 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 import { PortfolioApiService } from '../portfolio-api/portfolio-api.service';
 import {
   trigger,
@@ -8,6 +15,7 @@ import {
   query,
   stagger,
 } from '@angular/animations';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -15,79 +23,53 @@ import {
   styleUrls: ['./projects.component.scss'],
   animations: [
     trigger('listAnimation', [
-      transition('*=>*', [
-        // each time the binding value changes
+      transition('* => *', [
         query(
-          '.hey',
+          '.projectTiles',
           [
             style({ opacity: 0 }),
-            stagger(100, [
-              animate('500ms', style({ opacity: 1, transform: 'none' })),
+            stagger(300, [
+              animate('600ms', style({ opacity: 1, transform: 'none' })),
             ]),
           ],
           { optional: true }
         ),
       ]),
     ]),
-    // query('app-tiles', [
-    //   style({ opacity: 0, transform: 'translateY(-50px)' }),
-    //   stagger(100, [
-    //     animate('500ms', style({ opacity: 1, transform: 'none' })),
-    //   ]),
-    // ]),
-    // trigger('filterAnimation', [
-    //   transition(':enter, * => 0, * => -1', []),
-    //   transition(':increment', [
-    //     query(
-    //       ':enter',
-    //       [
-    //         style({ opacity: 0, width: '0px' }),
-    //         stagger(50, [
-    //           animate('300ms ease-out', style({ opacity: 1, width: '*' })),
-    //         ]),
-    //       ],
-    //       { optional: true }
-    //     ),
-    //   ]),
-    // ]),
-    // TODO: TH Currently working on trying to get Angular Animations to work with triggering animations staggering for each view box.
-    // TODO: TH Need to figure out how to trigger it based on the tab active that is there boolean.
-    // trigger('fadeIn', [
-    //   query('.hey', [
-    //     style({ opacity: 0, transform: 'translateY(-50px)' }),
-    //     stagger(100, [
-    //       animate('500ms', style({ opacity: 1, transform: 'none' })),
-    //     ]),
-    //   ]),
-    // ]),
   ],
 })
-export class ProjectsComponent implements OnInit {
-  //   transition('* => void', [
-  //     style({ opacity: '0' }),
-  //     animate('.5s ease-out', style({ opacity: '1' })),
-  //   ]),
-  // @HostBinding('@fadeIn')
-  public items;
+export class ProjectsComponent implements OnInit, OnDestroy {
+  @ViewChildren('TileId') viewChildren: QueryList<ElementRef>;
+  public items: any[];
+  getRepos: Subscription;
+
   // TODO:TH No lazy routing at all for any of the pages should there be any?
   constructor(private apiService: PortfolioApiService) {
+    console.log('The Project Constructor has been called.');
     this.items = [];
   }
 
   ngOnInit(): void {
-    // console.log(this.apiService.retrieveGitRepos());
-    this.apiService.retrieveGitRepos().subscribe((data) => {
+    console.log('THe Project NgOnIt has been called.');
+    if (this.items.length > 0) {
+      console.log('Items length is greater than zero');
+    }
+    this.getRepos = this.apiService.retrieveGitRepos().subscribe((data) => {
       console.log(data);
-      // Test Data
-      const data2 = [
-        { name: 'hey' },
-        { name: 'sould' },
-        { name: 'sister' },
-        { name: 'hey' },
-        { name: 'hey' },
-        { name: 'hey' },
-      ];
-      this.items = data2;
+      this.items = data;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.items = [];
+    // This is done, since I have to clear out and destory the div elements
+    // when the component is destroyed.
+    this.viewChildren.forEach((element) => {
+      element.nativeElement.remove();
+    });
+
+    if (this.getRepos) {
+      this.getRepos.unsubscribe();
+    }
   }
 }

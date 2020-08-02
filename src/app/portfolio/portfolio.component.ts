@@ -31,9 +31,4 @@ export class PortfolioComponent implements OnInit {
       this.renderer.addClass(event.element, 'fadeInDown');
     }
   }
-
-  tabChanged(tabChangeEvent: MatTabChangeEvent): void {
-    console.log('tabChangeEvent => ', tabChangeEvent);
-    console.log('index => ', tabChangeEvent.index);
-  }
 }
