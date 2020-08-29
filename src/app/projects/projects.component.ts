@@ -43,7 +43,6 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   public items: any[];
   getRepos: Subscription;
 
-  // TODO:TH No lazy routing at all for any of the pages should there be any?
   constructor(private apiService: PortfolioApiService) {
     console.log('The Project Constructor has been called.');
     this.items = [];

@@ -1,4 +1,10 @@
-<div gdColumns="repeat(4, 1fr)" gdGap="16px" [@listAnimation]="items.length">
+<div
+  gdColumns="repeat(3, 1fr)"
+  gdColumns.sm="repeat(2, 1fr)"
+  gdColumns.xs="repeat(1, 1fr)"
+  gdGap="16px"
+  [@listAnimation]="items.length"
+>
   <div *ngFor="let item of items">
     <div class="projectTiles" #TileId>
       <app-tiles [tileData]="item"></app-tiles>

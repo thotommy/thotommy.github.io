@@ -1,3 +1,21 @@
-<div class="tile-container">
-  <a [href]="tileData.html_url">{{ tileData.name }}</a>
+<div
+  [ngClass]="{
+    'tile-container': state === 'hidden',
+    'tile-container-hover': state === 'visible'
+  }"
+  (click)="onNavigate()"
+  (mouseover)="this.state = 'visible'"
+  (mouseout)="this.state = 'hidden'"
+>
+  <div fxLayoutAlign="center center">
+    {{ tileData.name }}
+  </div>
+  <div
+    class="techUsedPanel"
+    fxLayout="row"
+    fxLayoutAlign="center"
+    [@state]="state"
+  >
+    <img *ngFor="let imgTool of toolDataDisplay" [src]="imgTool" />
+  </div>
 </div>
