@@ -1,20 +1,6 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  ElementRef,
-  ViewChildren,
-  QueryList,
-} from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChildren, QueryList } from '@angular/core';
 import { PortfolioApiService } from '../portfolio-api/portfolio-api.service';
-import {
-  trigger,
-  transition,
-  style,
-  animate,
-  query,
-  stagger,
-} from '@angular/animations';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -26,12 +12,7 @@ import { Subscription } from 'rxjs';
       transition('* => *', [
         query(
           '.projectTiles',
-          [
-            style({ opacity: 0 }),
-            stagger(300, [
-              animate('600ms', style({ opacity: 1, transform: 'none' })),
-            ]),
-          ],
+          [style({ opacity: 0 }), stagger(300, [animate('600ms', style({ opacity: 1, transform: 'none' }))])],
           { optional: true }
         ),
       ]),

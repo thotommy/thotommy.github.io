@@ -10,12 +10,7 @@
   <div fxLayoutAlign="center center">
     {{ tileData.name }}
   </div>
-  <div
-    class="techUsedPanel"
-    fxLayout="row"
-    fxLayoutAlign="center"
-    [@state]="state"
-  >
+  <div class="techUsedPanel" fxLayout="row" fxLayoutAlign="center" [@state]="state">
     <img *ngFor="let imgTool of toolDataDisplay" [src]="imgTool" />
   </div>
 </div>
