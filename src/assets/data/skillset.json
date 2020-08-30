@@ -1,0 +1,42 @@
+{
+  "intro": "Hey my name is Tommy Ho, and I build applications to make the world a better place. I have worked on many sides of development, but my driven passion will always belong to the front end. Here is a few selection of technologies that I have experience with.",
+  "languages": [
+    "JavaScript(TypeScript)",
+    "C#",
+    "HTML5",
+    "CSS3(SCSS)",
+    "SQL",
+    "Python",
+    "Java",
+    "Bash"
+  ],
+  "frameworksLibraries": [
+    "Angular",
+    "RxJS",
+    ".Net Core",
+    ".Net Framework",
+    "ASP NET",
+    "MS SQL Server",
+    "Jasmine",
+    "Karma",
+    "Specflow",
+    "Material Design",
+    "Node.js",
+    "Express.js"
+  ],
+  "toolsMethods": [
+    "VS Code",
+    "Git",
+    "Visual Studios",
+    "IntelliJ",
+    "SSMS",
+    "REST API",
+    "Test Driven Development",
+    "TFS",
+    "JSON",
+    "YAML",
+    "Azure DevOps",
+    "NServiceBus"
+  ],
+  "others": ["Docker", "Kubernetes"]
+}

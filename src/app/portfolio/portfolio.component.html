@@ -1,6 +1,9 @@
 <div
   id="titleImg"
-  class="splashPage"
+  [ngClass]="{
+    splashPage: !checkWidth,
+    splashPageSmall: checkWidth
+  }"
   fxLayout="column"
   fxLayoutAlign="center center"
 >
@@ -19,7 +22,13 @@
   </div>
 </div>
 
-<div id="main" class="splashPage">
+<div
+  id="main"
+  [ngClass]="{
+    splashPage: !checkWidth,
+    splashPageSmall: checkWidth
+  }"
+>
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Skills">
       <ng-template matTabContent>

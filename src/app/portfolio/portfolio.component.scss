@@ -1,11 +1,17 @@
 .splashPage {
   max-width: 100%;
-  height: 100%;
+  min-height: 100%;
   color: white;
   background-color: rgb(26, 26, 26);
 }
 
-// Place holder for now.
+.splashPageSmall {
+  color: white;
+  background-color: rgb(26, 26, 26);
+  min-height: 100%;
+}
+
+// TODO:TH Place holder for now.
 #titleImg {
   background-image: url('https://static.wixstatic.com/media/b69086_86dbd0116e284dcba9f1575de3335479~mv2.gif');
 }
@@ -34,14 +40,3 @@
 .mat-tab-label .mat-tab-label-active {
   color: white;
 }
-
-//TODO: TH causes a bug where when things are transititioned than it animates weirdly.
-// .mat-tab-body-wrapper {
-//   padding: 6%;
-//   height: inherit;
-// }
-
-// /* Styles for the ink bar */
-// .mat-ink-bar {
-//   background-color: rgb(83, 148, 108);
-// }

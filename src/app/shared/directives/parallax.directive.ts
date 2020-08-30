@@ -1,11 +1,4 @@
-import {
-  Directive,
-  Input,
-  HostListener,
-  ElementRef,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Directive, Input, HostListener, ElementRef, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[appParallax]',
@@ -22,8 +15,7 @@ export class ParallaxDirective {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event) {
-    this.eleRef.nativeElement.style.top =
-      this.initialTop - window.scrollY * this.parallaxRatio + 'px';
+    this.eleRef.nativeElement.style.top = this.initialTop - window.scrollY * this.parallaxRatio + 'px';
 
     if (window.scrollY < 20) {
       this.startTransition.emit({
@@ -39,10 +31,7 @@ export class ParallaxDirective {
       } as ParallaxTransition);
       return;
     }
-    if (
-      this.eleRef.nativeElement.getBoundingClientRect().top > -41 &&
-      window.scrollY > 20
-    ) {
+    if (this.eleRef.nativeElement.getBoundingClientRect().top > -41 && window.scrollY > 20) {
       this.startTransition.emit({
         startTransition: false,
         element: this.eleRef.nativeElement,
