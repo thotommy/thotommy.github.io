@@ -6,6 +6,9 @@ import { Directive, Input, HostListener, ElementRef, Output, EventEmitter } from
 export class ParallaxDirective {
   // tslint:disable-next-line: no-input-rename
   @Input('ratio') parallaxRatio = 1;
+  @Input() startParallaxPositionScroll: number;
+  @Input() resetParallaxPositionScroll: number;
+
   @Output() startTransition = new EventEmitter<ParallaxTransition>();
   initialTop = 0;
 
@@ -15,23 +18,37 @@ export class ParallaxDirective {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event) {
+    // console.log(this.eleRef);
+    console.log('Window Scroll Y position = ' + window.scrollY);
+
     this.eleRef.nativeElement.style.top = this.initialTop - window.scrollY * this.parallaxRatio + 'px';
 
-    if (window.scrollY < 20) {
+    console.log('bounding element client rect top ' + this.eleRef.nativeElement.getBoundingClientRect().top);
+    // console.log('bounding element client rect bot ' + this.eleRef.nativeElement.getBoundingClientRect().bottom);
+    // console.log('this.eleRef.nativeElement.style.top = ' + this.eleRef.nativeElement.style.top);
+    // console.log('this.eleRef.nativeElement.style.bot = ' + this.eleRef.nativeElement.style.bottom);
+
+    if (window.scrollY < this.resetParallaxPositionScroll) {
+      console.error('false transition');
       this.startTransition.emit({
         startTransition: false,
         element: this.eleRef.nativeElement,
       } as ParallaxTransition);
       return;
     }
-    if (this.eleRef.nativeElement.getBoundingClientRect().top < -41) {
+    if (this.eleRef.nativeElement.getBoundingClientRect().top < this.startParallaxPositionScroll) {
+      // console.error('starting transition');
       this.startTransition.emit({
         startTransition: true,
         element: this.eleRef.nativeElement,
       } as ParallaxTransition);
       return;
     }
-    if (this.eleRef.nativeElement.getBoundingClientRect().top > -41 && window.scrollY > 20) {
+    if (
+      this.eleRef.nativeElement.getBoundingClientRect().top > this.startParallaxPositionScroll &&
+      window.scrollY > this.resetParallaxPositionScroll
+    ) {
+      // console.error('false transition 1');
       this.startTransition.emit({
         startTransition: false,
         element: this.eleRef.nativeElement,

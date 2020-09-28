@@ -8,12 +8,6 @@ import { AnimatedTilesComponent } from './components/animated-tiles/animated-til
 @NgModule({
   declarations: [ParallaxDirective, AnimatedTilesComponent],
   imports: [CommonModule, FlexLayoutModule, MaterialModule],
-  exports: [
-    CommonModule,
-    FlexLayoutModule,
-    MaterialModule,
-    ParallaxDirective,
-    AnimatedTilesComponent,
-  ],
+  exports: [CommonModule, FlexLayoutModule, MaterialModule, ParallaxDirective, AnimatedTilesComponent],
 })
 export class SharedModule {}
