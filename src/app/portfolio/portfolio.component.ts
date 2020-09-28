@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Renderer2, HostListener } from '@angular/core';
 // TODO:TH See if we can consolidate the parallax to only be for portfolio component,
 // to consolidate for all pages.
-
-import { ParallaxTransition } from '../shared/directives/parallax.directive';
+import { ParallaxTransition } from './directives/parallax.directive';
 
 @Component({
   selector: 'app-portfolio',
@@ -26,17 +25,17 @@ export class PortfolioComponent implements OnInit {
   action(event: ParallaxTransition) {
     this.visible = event.startTransition;
     // console.log(event);
-    if (event.startTransition) {
-      this.renderer.removeClass(event.element, 'animated');
-      this.renderer.removeClass(event.element, 'fadeInDown');
-      this.renderer.addClass(event.element, 'animated');
-      this.renderer.addClass(event.element, 'fadeOutUp');
-    } else {
-      this.renderer.removeClass(event.element, 'animated');
-      this.renderer.removeClass(event.element, 'fadeOutUp');
-      this.renderer.addClass(event.element, 'animated');
-      this.renderer.addClass(event.element, 'fadeInDown');
-    }
+    // if (event.startTransition) {
+    //   this.renderer.removeClass(event.element, 'animated');
+    //   this.renderer.removeClass(event.element, 'fadeInDown');
+    //   this.renderer.addClass(event.element, 'animated');
+    //   this.renderer.addClass(event.element, 'fadeOutUp');
+    // } else {
+    //   this.renderer.removeClass(event.element, 'animated');
+    //   this.renderer.removeClass(event.element, 'fadeOutUp');
+    //   this.renderer.addClass(event.element, 'animated');
+    //   this.renderer.addClass(event.element, 'fadeInDown');
+    // }
   }
 
   @HostListener('window:resize', ['$event'])

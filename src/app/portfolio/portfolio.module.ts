@@ -7,14 +7,10 @@ import { PortfolioRoutingModule } from './portfolio-routing.module';
 import { SkillsComponent } from '../skills/skills.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { ContactComponent } from '../contact/contact.component';
+import { ParallaxDirective } from './directives/parallax.directive';
 
 @NgModule({
-  declarations: [
-    PortfolioComponent,
-    SkillsComponent,
-    ProjectsComponent,
-    ContactComponent,
-  ],
+  declarations: [PortfolioComponent, SkillsComponent, ProjectsComponent, ContactComponent, ParallaxDirective],
   imports: [CommonModule, SharedModule, MaterialModule, PortfolioRoutingModule],
 })
 export class PortfolioModule {}

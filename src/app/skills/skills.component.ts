@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, query, style, stagger, animate, state } from '@angular/animations';
 import { Skills } from '../shared/models/models';
-import { ParallaxTransition } from '../shared/directives/parallax.directive';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
-  // TODO:TH See if we can get the animation to trigger when something is within viewport. Maybe create a common service
-  // That can check to see when something is within the viewport?
   // TODO:TH Maybe try to have 4 categories that can be clicked on with blobs that render of the stuff when done.
   animations: [
     trigger('listAnimation', [
