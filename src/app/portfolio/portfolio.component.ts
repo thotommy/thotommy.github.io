@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Renderer2, HostListener } from '@angular/core';
-// TODO:TH See if we can consolidate the parallax to only be for portfolio component, or use angular animation.
+// TODO:TH See if we can consolidate the parallax to only be for portfolio component,
+// to consolidate for all pages.
 
 import { ParallaxTransition } from '../shared/directives/parallax.directive';
 
@@ -24,6 +25,7 @@ export class PortfolioComponent implements OnInit {
 
   action(event: ParallaxTransition) {
     this.visible = event.startTransition;
+    // console.log(event);
     if (event.startTransition) {
       this.renderer.removeClass(event.element, 'animated');
       this.renderer.removeClass(event.element, 'fadeInDown');

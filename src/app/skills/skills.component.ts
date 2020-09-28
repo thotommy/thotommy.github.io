@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  transition,
-  query,
-  style,
-  stagger,
-  animate,
-} from '@angular/animations';
+import { trigger, transition, query, style, stagger, animate, state } from '@angular/animations';
 import { Skills } from '../shared/models/models';
+import { ParallaxTransition } from '../shared/directives/parallax.directive';
 
 @Component({
   selector: 'app-skills',
@@ -21,23 +15,34 @@ import { Skills } from '../shared/models/models';
       transition('void => *', [
         query(
           '.skillTiles',
-          [
-            style({ opacity: 0 }),
-            stagger(300, [
-              animate('600ms', style({ opacity: 1, transform: 'none' })),
-            ]),
-          ],
+          [style({ opacity: 0 }), stagger(300, [animate('600ms', style({ opacity: 1, transform: 'none' }))])],
           { optional: true }
         ),
       ]),
     ]),
+    // trigger('listAnimationLeave', [
+    //   transition('* => void', [
+    //     query(
+    //       '.skillTiles',
+    //       [style({ opacity: 0 }), stagger(300, [animate('600ms', style({ opacity: 0, transform: 'none' }))])],
+    //       { optional: true }
+    //     ),
+    //   ]),
+    // ]),
   ],
 })
 export class SkillsComponent implements OnInit {
   skillData: Skills = new Skills();
+  // startTheTransition = 'hidden';
+  // startAnimation = false;
   constructor() {
     this.skillData = require('@assets/data/skillset.json');
+    // this.startAnimation = false;
   }
 
   ngOnInit(): void {}
+
+  // onIntersection(event) {
+  //   this.startAnimation = true;
+  // }
 }
