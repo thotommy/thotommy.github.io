@@ -1,49 +1,37 @@
-<div
-  id="titleImg"
-  [ngClass]="{
-    splashPage: !checkWidth,
-    splashPageSmall: checkWidth
-  }"
+
+  <div
+  #tommy
+  id="tommy"
   fxLayout="column"
   fxLayoutAlign="center center"
 >
-  <!--    class="animated fadeInDown"-->
+<div id="navbar" fxLayout="row" fxLayoutGap="20px">
+  <div (click)="home()">Home</div>
+  <div (click)="skill()">Skills</div>
+  <div (click)="project()">Projects</div>
+  <div (click)="contact()">Contact</div>
+
+</div>
   <div
-    appParallax
-    [ratio]="0.1"
-    [startParallaxPositionScroll]="-41"
-    [resetParallaxPositionScroll]="20"
-    (startTransition)="action($event)"
     id="title"
     fxLayout="column"
     fxLayoutAlign="center center"
+    animateElement="fadeInDown"
+    speed="fast"
+    aos
   >
     <h1 style="font-size: 80px; margin-bottom: 1em; width: 400px">Tommy Ho</h1>
     <h2 style="font-size: 40px">Full Stack Developer</h2>
     <h2 style="font-size: 40px">Angular Developer</h2>
-  </div>
+  </div>  
 </div>
 
-<div
-  id="main"
-  [ngClass]="{
-    splashPage: !checkWidth,
-    splashPageSmall: checkWidth
-  }"
->
-  <mat-tab-group mat-align-tabs="center">
-    <mat-tab label="Skills">
-      <ng-template matTabContent>
-        <app-skills></app-skills>
-      </ng-template>
-    </mat-tab>
-    <mat-tab label="Projects">
-      <ng-template matTabContent><app-projects></app-projects></ng-template>
-    </mat-tab>
-    <mat-tab label="Contact Me">
-      <ng-template matTabContent>
-        <app-contact></app-contact>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
+<div #skills id="skills" [ngStyle]="checkWidth && {'height': 'auto'}">
+  <app-skills></app-skills>
+</div>
+<div #projects id="projects" [ngStyle]="checkWidth && {'height': 'auto'}">
+  <app-projects></app-projects>
+</div>
+<div #contactMe id="contact" [ngStyle]="checkWidth && {'height': 'auto'}">
+  <app-contact></app-contact> 
 </div>

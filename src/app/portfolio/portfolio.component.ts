@@ -1,7 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Renderer2, HostListener } from '@angular/core';
-// TODO:TH See if we can consolidate the parallax to only be for portfolio component,
-// to consolidate for all pages.
-import { ParallaxTransition } from './directives/parallax.directive';
+import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,37 +7,47 @@ import { ParallaxTransition } from './directives/parallax.directive';
   encapsulation: ViewEncapsulation.None,
 })
 export class PortfolioComponent implements OnInit {
+  @ViewChild('tommy')
+  homeEle: ElementRef;
+  @ViewChild('skills')
+  skillsEle: ElementRef;
+  @ViewChild('projects')
+  projectsEle: ElementRef;
+  @ViewChild('contactMe')
+  contactEle: ElementRef;
+
   visible = false;
   innerWidth: any;
   checkWidth: boolean;
+  tabActive: number;
 
-  constructor(private renderer: Renderer2) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.visible = false;
-    this.innerWidth = window.innerWidth;
+    this.innerWidth = window.innerHeight;
     this.checkWidth = innerWidth < 960;
-  }
-
-  action(event: ParallaxTransition) {
-    this.visible = event.startTransition;
-    // console.log(event);
-    // if (event.startTransition) {
-    //   this.renderer.removeClass(event.element, 'animated');
-    //   this.renderer.removeClass(event.element, 'fadeInDown');
-    //   this.renderer.addClass(event.element, 'animated');
-    //   this.renderer.addClass(event.element, 'fadeOutUp');
-    // } else {
-    //   this.renderer.removeClass(event.element, 'animated');
-    //   this.renderer.removeClass(event.element, 'fadeOutUp');
-    //   this.renderer.addClass(event.element, 'animated');
-    //   this.renderer.addClass(event.element, 'fadeInDown');
-    // }
   }
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.innerWidth = window.innerWidth;
     this.checkWidth = innerWidth < 960;
+  }
+
+  home() {
+    this.homeEle.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  skill() {
+    this.skillsEle.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  project() {
+    this.projectsEle.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  contact() {
+    this.contactEle.nativeElement.scrollIntoView({ behavior: 'smooth' });
   }
 }
