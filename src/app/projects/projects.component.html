@@ -3,10 +3,9 @@
   gdColumns.sm="repeat(2, 1fr)"
   gdColumns.xs="repeat(1, 1fr)"
   gdGap="16px"
-  [@listAnimation]="items.length"
 >
-  <div *ngFor="let item of items">
-    <div class="projectTiles" #TileId>
+  <div *ngFor="let item of items; let i = index">
+    <div class="projectTiles" #TileId animateElement="{{animations[i % 4]}}" speed="fast" delay="{{ i * 100 }}" aos>
       <app-tiles [tileData]="item"></app-tiles>
     </div>
   </div>

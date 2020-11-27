@@ -1,27 +1,27 @@
-<div [@listAnimation]="skillData" fxLayout="column" fxLayoutGap="25px" class="skillContainer">
+<div  fxLayout="column" fxLayoutGap="25px" class="skillContainer">
   <div class="skillTiles" gdRows="1, 1fr">
     {{ skillData.intro }}
   </div>
   <div gdColumns="repeat(4, 1fr)" gdColumns.sm="repeat(2, 1fr)" gdColumns.xs="repeat(1, 1fr)" gdGap="16px">
-    <div class="skillTiles">
+    <div class="skillTiles" animateElement="fadeInUp" speed="fast" delay="0" aos >
       <h2>Languages</h2>
       <ul *ngFor="let language of skillData.languages">
         <li>{{ language }}</li>
       </ul>
     </div>
-    <div class="skillTiles">
+    <div class="skillTiles" animateElement="fadeInDown" speed="fast" delay="100" aos>
       <h2>Frameworks & Libs</h2>
       <ul *ngFor="let fL of skillData.frameworksLibraries">
         <li>{{ fL }}</li>
       </ul>
     </div>
-    <div class="skillTiles">
+    <div class="skillTiles" animateElement="fadeInLeft" speed="fast" delay="200" aos>
       <h2>Tools & Methods</h2>
       <ul *ngFor="let sT of skillData.toolsMethods">
         <li>{{ sT }}</li>
       </ul>
     </div>
-    <div class="skillTiles">
+    <div class="skillTiles" animateElement="fadeInRight" speed="fast" delay="300" aos>
       <h2>Others</h2>
       <ul *ngFor="let other of skillData.others">
         <li>{{ other }}</li>
