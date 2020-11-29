@@ -16,17 +16,13 @@ import { trigger } from '@angular/animations';
 import { AnimateService } from './animate.service';
 // Animations
 import { fadeIn } from './entrances/fade-in';
-import { animationSpeed, animationEffect } from './animate.types';
+import { animationSpeed, animationEffect, PlayParameters } from './animate.types';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: '[animateElement]',
   template: '<ng-content></ng-content>',
-  animations: [
-    trigger('animate', [
-      // Entrances
-      ...fadeIn,
-    ]),
-  ],
+  animations: [trigger('animate', [...fadeIn])],
 })
 export class AnimateComponent implements OnInit, OnDestroy {
   // TODO:TH Fix up the animation classes.
@@ -41,6 +37,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
 
   // Input Decorators
   /** Selects the animation to be played */
+  // tslint:disable-next-line: no-input-rename
   @Input('animateElement') animate: animationEffect;
 
   /** Speeds up or slows down the animation */
@@ -56,16 +53,15 @@ export class AnimateComponent implements OnInit, OnDestroy {
   }
 
   /** Delays the animation */
-  @Input('delay') set postpone(delay: string) {
-    // alert(delay);
+  @Input('delay') set postpone(delayValue: string) {
     // Coerces the input into a number first
-    const value = coerceNumberProperty(delay, 0);
+    const value = coerceNumberProperty(delayValue, 0);
     if (value) {
       // Turns a valid number into a ms delay
       this.delay = `${value}ms`;
     } else {
       // Test the string for a valid delay combination
-      this.delay = /^\d+(?:ms|s)$/.test(delay) ? delay : '';
+      this.delay = /^\d+(?:ms|s)$/.test(delayValue) ? delayValue : '';
     }
   }
 
@@ -78,13 +74,14 @@ export class AnimateComponent implements OnInit, OnDestroy {
   @Input('paused') set pauseAnimation(value: boolean) {
     this.paused = coerceBooleanProperty(value);
   }
-  public paused: boolean = false;
+  public paused = false;
 
-  /** When defined, triggers the animation on element scrolling in the viewport by the specified amount. Amount defaults to 50% when not specified */
+  // When defined, triggers the animation on element scrolling in the viewport by the specified amount.
+  // Amount defaults to 50% when not specified
   @Input('aos') set enableAOS(value: number) {
     this.threshold = coerceNumberProperty(value, 0.5);
   }
-  private threshold: number = 0;
+  private threshold = 0;
 
   /** When true, triggers the animation on element scrolling in the viewport */
   @Input('once') set aosOnce(value: boolean) {
@@ -113,7 +110,6 @@ export class AnimateComponent implements OnInit, OnDestroy {
   // Host Listeners
   @HostListener('@animate.start')
   private animationStart() {
-    console.log('animation started');
     this.animating = true;
     this.animated = false;
     this.start.emit();
@@ -121,7 +117,6 @@ export class AnimateComponent implements OnInit, OnDestroy {
 
   @HostListener('@animate.done')
   private animationDone() {
-    console.log('animation done');
     this.animating = false;
     this.animated = true;
     this.done.emit();
@@ -133,13 +128,13 @@ export class AnimateComponent implements OnInit, OnDestroy {
     return { value: `idle-${this.animate}` };
   }
   private get play() {
-    const params = {};
+    const params = {} as PlayParameters;
     // Builds the params object, so, leaving to the default values when undefined
     if (!!this.timing) {
-      params['timing'] = this.timing;
+      params.timing = this.timing;
     }
     if (!!this.delay) {
-      params['delay'] = this.delay;
+      params.delay = this.delay;
     }
 
     return { value: this.animate, params };

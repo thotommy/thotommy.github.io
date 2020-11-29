@@ -13,25 +13,25 @@ export const fadeIn = [
 
   transition(
     '* => fadeInRight',
-    [style({ opacity: 0, transform: 'translateX(-20px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
+    [style({ opacity: 0, transform: 'translateX(-50px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
     { params: { timing: '1s', delay: '' } }
   ),
 
   transition(
     '* => fadeInLeft',
-    [style({ opacity: 0, transform: 'translateX(20px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
+    [style({ opacity: 0, transform: 'translateX(50px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
     { params: { timing: '1s', delay: '' } }
   ),
 
   transition(
     '* => fadeInUp',
-    [style({ opacity: 0, transform: 'translateY(20px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
+    [style({ opacity: 0, transform: 'translateY(50px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
     { params: { timing: '1s', delay: '' } }
   ),
 
   transition(
     '* => fadeInDown',
-    [style({ opacity: 0, transform: 'translateY(-20px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
+    [style({ opacity: 0, transform: 'translateY(-50px)' }), animate('{{timing}} {{delay}} ease-in', style('*'))],
     { params: { timing: '1s', delay: '' } }
   ),
 ];

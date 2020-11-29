@@ -1,6 +1,6 @@
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 import { ScrollDispatcher, ViewportRuler } from '@angular/cdk/scrolling';
-import { Directive, ElementRef, forwardRef, Input, NgZone } from '@angular/core';
+import { Directive, ElementRef, forwardRef, Input, NgZone, Renderer2 } from '@angular/core';
 import { AnimateService } from './animate.service';
 
 @Directive({
@@ -14,23 +14,26 @@ import { AnimateService } from './animate.service';
   selector: '[appAnimateView]',
 })
 export class AnimateDirective extends AnimateService {
-  /** When true instructs the directive to use the element's bounding rect as the animation view */
+  private element = false;
+
+  // When true instructs the directive to use the element's bounding rect as the animation view
   @Input() set useElement(value: boolean) {
     this.element = coerceBooleanProperty(value);
   }
-  private element = false;
-
-  /** Optional top offset */
+  // Optional offsets
   @Input() public top: number;
-
-  /** Optional left offset */
   @Input() public left: number;
-
-  /** Optional bottom offset */
   @Input() public bottom: number;
-
-  /** Optional right offset */
   @Input() public right: number;
+
+  constructor(
+    private elref: ElementRef<HTMLElement>,
+    readonly viewPort: ViewportRuler,
+    scroll: ScrollDispatcher,
+    zone: NgZone
+  ) {
+    super(scroll, viewPort, zone);
+  }
 
   // Overrides the viewport with the element's client rect on request
   protected get viewRect(): ClientRect {
@@ -50,14 +53,5 @@ export class AnimateDirective extends AnimateService {
       height: bottom - top,
       width: right - left,
     };
-  }
-
-  constructor(
-    private elref: ElementRef<HTMLElement>,
-    readonly viewPort: ViewportRuler,
-    scroll: ScrollDispatcher,
-    zone: NgZone
-  ) {
-    super(scroll, viewPort, zone);
   }
 }
