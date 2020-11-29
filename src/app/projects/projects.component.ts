@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChildren, QueryList, Input } from '@angular/core';
 import { PortfolioApiService } from '../portfolio-api/portfolio-api.service';
 import { Subscription } from 'rxjs';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-projects',
@@ -21,7 +22,8 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getRepos = this.apiService.retrieveGitRepos().subscribe((data) => {
-      this.items = data;
+      this.items = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+      // this.items = data;
     });
   }
 
