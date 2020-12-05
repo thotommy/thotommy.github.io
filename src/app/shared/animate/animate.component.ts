@@ -14,9 +14,10 @@ import { startWith, delay, filter, takeWhile } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { trigger } from '@angular/animations';
 import { AnimateService } from './animate.service';
+import { animationSpeed, animationEffect, PlayParameters } from './animate.types';
+
 // Animations
 import { fadeIn } from './entrances/fade-in';
-import { animationSpeed, animationEffect, PlayParameters } from './animate.types';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -28,10 +29,10 @@ export class AnimateComponent implements OnInit, OnDestroy {
   // TODO:TH Fix up the animation classes.
   private replay$ = new Subject<boolean>();
   private sub: Subscription;
-  // Animating parameters
+  // Animating time and delay
   private timing: string;
   private delay: string;
-  // Animating properties
+  // Animating Type
   public animating = false;
   public animated = false;
 
