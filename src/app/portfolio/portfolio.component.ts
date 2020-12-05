@@ -19,20 +19,23 @@ export class PortfolioComponent implements OnInit {
   visible = false;
   innerWidth: any;
   checkWidth: boolean;
+  mobileWidth: boolean;
   tabActive: number;
 
   constructor() {}
 
   ngOnInit(): void {
     this.visible = false;
-    this.innerWidth = window.innerHeight;
+    this.innerWidth = window.innerWidth;
     this.checkWidth = innerWidth < 960;
+    this.mobileWidth = innerWidth < 578;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.innerWidth = window.innerWidth;
     this.checkWidth = innerWidth < 960;
+    this.mobileWidth = innerWidth < 578;
   }
 
   home() {
