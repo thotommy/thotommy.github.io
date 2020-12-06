@@ -24,6 +24,11 @@ export class PortfolioComponent implements OnInit {
 
   constructor() {}
 
+  // Ensure that the page goes to the top on reload
+  @HostListener('window:beforeunload') goToPage() {
+    window.scrollTo(0, 0);
+  }
+
   ngOnInit(): void {
     this.visible = false;
     this.innerWidth = window.innerWidth;

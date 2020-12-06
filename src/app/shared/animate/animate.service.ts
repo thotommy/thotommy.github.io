@@ -63,7 +63,6 @@ export class AnimateService {
 
   // Triggers the animation on scroll
   private aos(elm: ElementRef<HTMLElement>, threshold: number): Observable<boolean> {
-    console.log(threshold);
     // A variation based on IntersectionObserver can be conditionally implemented here.
     // Returns an AOS observable
     return this.scroll.ancestorScrolled(elm, 0).pipe(
@@ -71,7 +70,7 @@ export class AnimateService {
       startWith(0),
       // Maps the scrolling to the element visibility value
       switchMap(() => this.visibility(elm)),
-      // Applies an hysteresys, so, to trigger the animation on based on the treshold while off on full invisibility
+      // Applies an hysteresys, so, to trigger the animation on based on the threshold while off on full invisibility
       scan((result, visiblility) => visiblility >= threshold || (result && visiblility > 0), false),
       // Distincts the resulting triggers
       distinctUntilChanged(),
@@ -79,6 +78,7 @@ export class AnimateService {
       runInZone(this.zone)
     );
   }
+
   // Computes the element's visibility ratio against the viewport
   private visibility(elm: ElementRef<HTMLElement>): Observable<number> {
     // Resolves from the latest viewport
