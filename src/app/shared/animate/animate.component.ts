@@ -10,7 +10,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
-import { startWith, delay, filter, takeWhile } from 'rxjs/operators';
+import { startWith, delay, takeWhile, map, distinctUntilChanged } from 'rxjs/operators';
 import { Subject, Subscription } from 'rxjs';
 import { trigger } from '@angular/animations';
 import { AnimateService } from './animate.service';
@@ -153,14 +153,17 @@ export class AnimateComponent implements OnInit, OnDestroy {
         startWith(!this.paused),
         // Builds the AOS observable from the common service
         this.scroll.trigger(this.elm, this.threshold),
-        // Prevents false visibility blinks due to the animation transformations
-        filter(() => !this.animating),
         // Stops after the first on trigger when 'once' is set
-        takeWhile((triggerTake) => !triggerTake || !this.once, true)
+        takeWhile((triggerTake) => !triggerTake || !this.once, true),
+        // Maps the trigger into animation states
+        map((triggerAnimationValue) => (triggerAnimationValue ? this.play : this.idle)),
+        // Always start with idle
+        startWith(this.idle),
+        // Eliminates multiple triggers
+        distinctUntilChanged()
       )
       .subscribe((triggerResp) => {
-        // Triggers the animation to play or to idle
-        this.trigger = triggerResp ? this.play : this.idle;
+        this.trigger = triggerResp;
       });
   }
 
