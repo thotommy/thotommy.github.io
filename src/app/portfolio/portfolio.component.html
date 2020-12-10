@@ -1,24 +1,26 @@
-<div #tommy id="tommy" fxLayout="column" fxLayoutAlign="center center">
-  <div [ngClass]="{'navbar': !mobileWidth, 'navbar-mobile': mobileWidth }" fxLayout="row" fxLayoutGap="20px">
-    <div (click)="home()">Home</div>
-    <div (click)="skill()">Skills</div>
-    <div (click)="project()">Projects</div>
-    <div (click)="contact()">Contact</div>
+<div>
+  <div #tommy id="tommy" fxLayout="column" fxLayoutAlign="center center">
+    <div [ngClass]="{'navbar': !mobileWidth, 'navbar-mobile': mobileWidth }" fxLayout="row" fxLayoutGap="20px">
+      <div (click)="home()">Home</div>
+      <div (click)="skill()">Skills</div>
+      <div (click)="project()">Projects</div>
+      <div (click)="contact()">Contact</div>
+    </div>
+    <div id="title" fxLayout="column" fxLayoutAlign="center center"
+      animateElement="fadeInDown" speed="fast" aos>
+      <h1 [ngStyle]="{'font-size': innerWidth < 763 ? '40px' : '80px'}" style="margin-bottom: 1em">Tommy Ho</h1>
+      <h2 [ngStyle]="{'font-size': innerWidth < 763 ? '24px' : '40px'}">Full Stack Developer</h2>
+      <h2 [ngStyle]="{'font-size': innerWidth < 763 ? '24px' : '40px'}">Angular Developer</h2>
+    </div>  
   </div>
-  <div id="title" fxLayout="column" fxLayoutAlign="center center"
-    animateElement="fadeInDown" speed="fast" aos>
-    <h1 [ngStyle]="{'font-size': innerWidth < 763 ? '40px' : '80px'}" style="margin-bottom: 1em">Tommy Ho</h1>
-    <h2 [ngStyle]="{'font-size': innerWidth < 763 ? '24px' : '40px'}">Full Stack Developer</h2>
-    <h2 [ngStyle]="{'font-size': innerWidth < 763 ? '24px' : '40px'}">Angular Developer</h2>
-  </div>  
-</div>
-
-<div #skills id="skills" [ngStyle]="checkWidth && {'height': 'auto'}">
-  <app-skills></app-skills>
-</div>
-<div #projects id="projects" [ngStyle]="checkWidth && {'height': 'auto'}">
-  <app-projects></app-projects>
-</div>
-<div #contactMe id="contact" [ngStyle]="checkWidth && {'height': 'auto'}">
-  <app-contact></app-contact> 
+  
+  <div #skills id="skills" [ngStyle]="modifyHeight && {'height': 'auto'}" fxLayout="row" fxLayoutAlign="center">
+    <app-skills></app-skills>
+  </div>
+  <div #projects id="projects" [ngStyle]="modifyHeight && {'height': 'auto'}" fxLayout="row" fxLayoutAlign="center">
+    <app-projects></app-projects>
+  </div>
+  <div #contactMe id="contact" [ngStyle]="modifyHeight && {'height': 'auto'}">
+    <app-contact></app-contact> 
+  </div>
 </div>
