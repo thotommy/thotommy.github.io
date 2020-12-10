@@ -18,7 +18,7 @@ export class PortfolioComponent implements OnInit {
 
   visible = false;
   innerWidth: any;
-  checkWidth: boolean;
+  modifyHeight: boolean;
   mobileWidth: boolean;
   tabActive: number;
 
@@ -32,14 +32,14 @@ export class PortfolioComponent implements OnInit {
   ngOnInit(): void {
     this.visible = false;
     this.innerWidth = window.innerWidth;
-    this.checkWidth = innerWidth < 960;
+    this.modifyHeight = innerWidth < 960 || window.innerHeight <= 678;
     this.mobileWidth = innerWidth < 578;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.innerWidth = window.innerWidth;
-    this.checkWidth = innerWidth < 960;
+    this.modifyHeight = innerWidth < 960 || window.innerHeight <= 678;
     this.mobileWidth = innerWidth < 578;
   }
 
