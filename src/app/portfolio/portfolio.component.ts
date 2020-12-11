@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import Typewriter from 't-writer.js';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,15 +7,12 @@ import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, ViewChi
   styleUrls: ['./portfolio.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class PortfolioComponent implements OnInit {
-  @ViewChild('tommy')
-  homeEle: ElementRef;
-  @ViewChild('skills')
-  skillsEle: ElementRef;
-  @ViewChild('projects')
-  projectsEle: ElementRef;
-  @ViewChild('contactMe')
-  contactEle: ElementRef;
+export class PortfolioComponent implements OnInit, AfterViewInit {
+  @ViewChild('tommy') homeEle: ElementRef;
+  @ViewChild('skills') skillsEle: ElementRef;
+  @ViewChild('projects') projectsEle: ElementRef;
+  @ViewChild('contactMe') contactEle: ElementRef;
+  @ViewChild('typewriter') typewriter;
 
   visible = false;
   innerWidth: any;
@@ -34,6 +32,10 @@ export class PortfolioComponent implements OnInit {
     this.innerWidth = window.innerWidth;
     this.modifyHeight = innerWidth < 960 || window.innerHeight <= 678;
     this.mobileWidth = innerWidth < 578;
+  }
+
+  ngAfterViewInit() {
+    this.typeWrite(); 
   }
 
   @HostListener('window:resize', ['$event'])
@@ -57,5 +59,25 @@ export class PortfolioComponent implements OnInit {
 
   contact() {
     this.contactEle.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  typeWrite() {
+    const target = this.typewriter.nativeElement;
+    console.log(target);
+    const writer = new Typewriter(target, {
+      loop: true,
+      typeColor: 'white',
+      animateCursor: true,
+      cursorColor: 'white'
+    });
+    writer
+      .rest(500)
+      .clear()
+      .type('Full Stack Developer')
+      .rest(500)
+      .clear()
+      .type('Angular Developer')
+      .rest(500)
+      .start();
   }
 }
