@@ -1,8 +1,8 @@
 <div  fxLayout="column" fxLayoutGap="25px" class="skillContainer">
-  <div class="skillTiles" gdRows="1, 1fr">
+  <div class="skillIntro" gdRows="1, 1fr" >
     {{ skillData.intro }}
   </div>
-  <div gdColumns="repeat(4, 1fr)" gdColumns.sm="repeat(2, 1fr)" gdColumns.xs="repeat(1, 1fr)" gdGap="16px">
+  <div class="tilesPanel" gdColumns="repeat(4, 1fr)" gdColumns.sm="repeat(2, 1fr)" gdColumns.xs="repeat(1, 1fr)">
     <div class="skillTiles" animateElement="fadeInUp" speed="fast" delay="0" aos >
       <h2>Languages</h2>
       <ul *ngFor="let language of skillData.languages">
