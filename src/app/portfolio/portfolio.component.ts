@@ -73,6 +73,12 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     writer
       .rest(500)
       .clear()
+      .type('I Love Tiffany')
+      .rest(500)
+      .clear()
+      .type('Software Engineer')
+      .rest(500)
+      .clear()
       .type('Full Stack Developer')
       .rest(500)
       .clear()
