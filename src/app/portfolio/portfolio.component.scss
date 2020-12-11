@@ -4,6 +4,10 @@
   background-color: rgb(26, 26, 26);
 }
 
+#typewriter {
+  font-family: 'Courier';
+}
+
 .navbar {
   background-color: transparent;
   padding: 20px;
@@ -50,3 +54,9 @@
   height: 100vh;
   color: white;
 }
+
+// .tw{}
+// .tw::after{
+//   content: " ";
+//   white-space: pre;
+// }
