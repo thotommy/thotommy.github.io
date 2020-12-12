@@ -1,4 +1,15 @@
-import { AfterViewInit, Component, OnInit, OnDestroy, ElementRef, ViewChildren, QueryList, Input, HostListener, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  OnDestroy,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+  Input,
+  HostListener,
+  ViewChild,
+} from '@angular/core';
 import { PortfolioApiService } from '../portfolio-api/portfolio-api.service';
 import { Subscription } from 'rxjs';
 import { CheckViewPortService } from '../shared/services/check-view-port.service';
@@ -26,7 +37,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.getRepos = this.apiService.retrieveGitRepos().subscribe((data) => {
-      this.items = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+      this.items = ['a', 'b', 'c', 'd', 'e'];
       // this.items = data;
     });
   }
@@ -57,24 +68,21 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
       animateCursor: true,
       cursorColor: 'white',
       typeSpeed: 40,
-      deleteSpeed:0
+      deleteSpeed: 0,
     });
 
-    this.isTitleVisible2 = writer2
-      .type('cd Projects')
-      .queueClearText()
-      .type('Projects');
+    this.isTitleVisible2 = writer2.type('cd Projects').queueClearText().type('Projects');
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event) {
     const inViewPort = this.checkViewPortService.IsElementInViewPort(this.projectTypeWriter);
-    if(!this.isTitleVisible2Counter && inViewPort) {
+    if (!this.isTitleVisible2Counter && inViewPort) {
       console.log('project title is visible');
       this.isTitleVisible2Counter = true;
       this.isTitleVisible2.start();
-    } 
-    if(!inViewPort) {
+    }
+    if (!inViewPort) {
       this.isTitleVisible2Counter = false;
     }
   }

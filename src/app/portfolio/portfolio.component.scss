@@ -55,8 +55,10 @@
   color: white;
 }
 
-// .tw{}
-// .tw::after{
-//   content: " ";
-//   white-space: pre;
-// }
+.portfolio {
+  background-image: url('../../assets/images/Terminal.svg');
+}
+
+.portfolio-mobile {
+  height: auto;
+}

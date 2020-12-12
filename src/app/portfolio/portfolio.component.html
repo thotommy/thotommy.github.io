@@ -13,13 +13,13 @@
     </div>  
   </div>
 
-  <div #skills id="skills" [ngStyle]="modifyHeight && {'height': 'auto'}" fxLayout="row" fxLayoutAlign="center">
+  <div #skills id="skills" [ngClass]="{'portfolio': !modifyHeight, 'portfolio-mobile': modifyHeight}" fxLayout="row" fxLayoutAlign="center">
     <app-skills></app-skills>
   </div>
-  <div #projects id="projects" [ngStyle]="modifyHeight && {'height': 'auto'}" fxLayout="row" fxLayoutAlign="center">
+  <div #projects id="projects" [ngClass]="{'portfolio': !modifyHeight, 'portfolio-mobile': modifyHeight}"  fxLayout="row" fxLayoutAlign="center">
     <app-projects></app-projects>
   </div>
-  <div #contactMe id="contact" [ngStyle]="modifyHeight && {'height': 'auto'}">
+  <div #contactMe id="contact" [ngClass]="{'portfolio': !modifyHeight, 'portfolio-mobile': modifyHeight}" >
     <app-contact></app-contact> 
   </div>
 </div>
