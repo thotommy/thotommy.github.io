@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import Typewriter from 't-writer.js';
+import { CheckViewPortService } from '../shared/services/check-view-port.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -20,7 +21,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   mobileWidth: boolean;
   tabActive: number;
 
-  constructor() {}
+  constructor(private checkViewPortService: CheckViewPortService) {}
 
   // Ensure that the page goes to the top on reload
   @HostListener('window:beforeunload') goToPage() {
@@ -36,6 +37,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.typeWrite(); 
+    console.log('home ' + this.checkViewPortService.IsElementInViewPort(this.homeEle));
   }
 
   @HostListener('window:resize', ['$event'])
@@ -63,7 +65,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
 
   typeWrite() {
     const target = this.typewriter.nativeElement;
-    console.log(target);
     const writer = new Typewriter(target, {
       loop: true,
       typeColor: 'white',
@@ -71,9 +72,6 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       cursorColor: 'white'
     });
     writer
-      .rest(500)
-      .clear()
-      .type('I Love Tiffany')
       .rest(500)
       .clear()
       .type('Software Engineer')
