@@ -39,7 +39,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.visible = false;
     this.innerWidth = window.innerWidth;
-    this.modifyHeight = innerWidth < 1025 || window.innerHeight <= 678;
+    this.modifyHeight = innerWidth < 960 || window.innerHeight <= 678;
     this.mobileWidth = innerWidth < 578;
   }
 
@@ -51,7 +51,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.innerWidth = window.innerWidth;
-    this.modifyHeight = innerWidth < 1025 || window.innerHeight <= 678;
+    this.modifyHeight = innerWidth < 960 || window.innerHeight <= 678;
     this.mobileWidth = innerWidth < 578;
   }
 
