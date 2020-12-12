@@ -1,23 +1,25 @@
 <div fxLayoutAlign="center">
-  <form gdColumns="1 1fr" class="contactContainer" gdGap="14px" action="https://app.99inbound.com/api/e/0Uvczba8" method="POST" target="_blank" animateElement="fadeInLeft" speed="fast" aos>
-    <h1 style="margin-bottom: 40px;">Contact Me</h1>
-    <div style="position: absolute; left: -5000px;">
-      <input type="checkbox" name="ultimate_chiffon_pinstriped_dolphin" value="1" tabindex="-1" autocomplete="no">
-    </div>
-    <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput required autocomplete="no"/>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput required autocomplete="no"/>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Message</mat-label>
-        <textarea matInput rows="5" cols="50" style="resize: none;" autocomplete="no"></textarea>
-    </mat-form-field>
-    <div style="padding-bottom: 80px; justify-self: right;">
-      <button mat-button>Submit</button>
+  <form class="contactContainer" action="https://app.99inbound.com/api/e/0Uvczba8" method="POST" target="_blank" >
+    <h1 #contactTypeWriter id="contactTypeWriter" style="margin-bottom: 40px;"></h1>
+    <div gdColumns="1 1fr" gdGap="14px" animateElement="fadeInLeft" speed="fast" delay="600" aos>
+      <div style="position: absolute; left: -5000px;">
+        <input type="checkbox" name="ultimate_chiffon_pinstriped_dolphin" value="1" tabindex="-1" autocomplete="no">
+      </div>
+      <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput required autocomplete="no"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput required autocomplete="no"/>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+          <mat-label>Message</mat-label>
+          <textarea matInput rows="5" cols="50" style="resize: none;" autocomplete="no"></textarea>
+      </mat-form-field>
+      <div style="padding-bottom: 80px; justify-self: right;">
+        <button mat-button>Submit</button>
+      </div>
     </div>
   </form>
 </div>
