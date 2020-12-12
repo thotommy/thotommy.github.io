@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewEncapsulation, HostListener, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  HostListener,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import Typewriter from 't-writer.js';
 import { CheckViewPortService } from '../shared/services/check-view-port.service';
 
@@ -31,19 +39,19 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.visible = false;
     this.innerWidth = window.innerWidth;
-    this.modifyHeight = innerWidth < 960 || window.innerHeight <= 678;
+    this.modifyHeight = innerWidth < 1025 || window.innerHeight <= 678;
     this.mobileWidth = innerWidth < 578;
   }
 
   ngAfterViewInit() {
-    this.typeWrite(); 
+    this.typeWrite();
     console.log('home ' + this.checkViewPortService.IsElementInViewPort(this.homeEle));
   }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.innerWidth = window.innerWidth;
-    this.modifyHeight = innerWidth < 960 || window.innerHeight <= 678;
+    this.modifyHeight = innerWidth < 1025 || window.innerHeight <= 678;
     this.mobileWidth = innerWidth < 578;
   }
 
@@ -69,7 +77,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       loop: true,
       typeColor: 'white',
       animateCursor: true,
-      cursorColor: 'white'
+      cursorColor: 'white',
     });
     writer
       .rest(500)
