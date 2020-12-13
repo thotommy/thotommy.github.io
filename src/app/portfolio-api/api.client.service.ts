@@ -12,4 +12,13 @@ export class ApiClientService {
     console.log(`Get call for ${url}`);
     return this.http.get<T>(url);
   }
+
+  post<T>(url: string, data: any): Observable<T> {
+    console.log(`Post call for ${url}.`);
+    const jsonData = JSON.stringify(data);
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+    return this.http.post<T>(url, jsonData, httpOptions);
+  }
 }
