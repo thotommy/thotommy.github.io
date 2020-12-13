@@ -37,8 +37,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.getRepos = this.apiService.retrieveGitRepos().subscribe((data) => {
-      this.items = ['a', 'b', 'c', 'd', 'e'];
-      // this.items = data;
+      this.items = data;
     });
   }
 

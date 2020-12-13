@@ -6,25 +6,25 @@
   <div class="tilesPanel" gdColumns="repeat(4, 1fr)" gdColumns.sm="repeat(2, 1fr)" gdColumns.xs="repeat(1, 1fr)">
     <div class="skillTiles" animateElement="fadeInUp" speed="fast" delay="700" aos >
       <h2>Languages</h2>
-      <ul *ngFor="let language of skillData.languages">
+      <ul *ngFor="let language of skillData.languages" class="l">
         <li>{{ language }}</li>
       </ul>
     </div>
     <div class="skillTiles" animateElement="fadeInDown" speed="fast" delay="800" aos>
       <h2>Frameworks & Libs</h2>
-      <ul *ngFor="let fL of skillData.frameworksLibraries">
+      <ul *ngFor="let fL of skillData.frameworksLibraries" class="fnl">
         <li>{{ fL }}</li>
       </ul>
     </div>
     <div class="skillTiles" animateElement="fadeInLeft" speed="fast" delay="900" aos>
       <h2>Tools & Methods</h2>
-      <ul *ngFor="let sT of skillData.toolsMethods">
+      <ul *ngFor="let sT of skillData.toolsMethods" class="tnm">
         <li>{{ sT }}</li>
       </ul>
     </div>
     <div class="skillTiles" animateElement="fadeInRight" speed="fast" delay="1000" aos>
       <h2>Others</h2>
-      <ul *ngFor="let other of skillData.others">
+      <ul *ngFor="let other of skillData.others" class="o">
         <li>{{ other }}</li>
       </ul>
     </div>
