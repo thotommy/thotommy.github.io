@@ -89,7 +89,6 @@ export class AnimateService {
         if(view.top < 0) {
             view.bottom = Math.abs(view.top);
             view.top = 0;
-            console.log('view changed to ' + JSON.stringify(view));
         }
         // Gets the element's bounding rect
         const rect = elm && elm.nativeElement && elm.nativeElement.getBoundingClientRect();

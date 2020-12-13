@@ -4,12 +4,25 @@
 
 @include mat-core();
 
+// Default Theming 
 $port-app-primary: mat-palette($mat-grey);
 $port-app-accent: mat-palette($mat-grey, A200, A100, A400);
 $port-app-warn: mat-palette($mat-red);
 
-$port-app-theme: mat-light-theme($port-app-primary, $port-app-accent, $port-app-warn);
+$port-app-theme: mat-dark-theme($port-app-primary, $port-app-accent, $port-app-warn);
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($port-app-theme);
+
+// Default Variables
+$black: black;
+$white: white;
+$primary-black: rgb(26, 26, 26);
+$secondary-black: rgb(36, 36, 36);
+$hover-black: #303030;
+
+$primary-blue: #67a7c1;
+$primary-green:  #94af6f;
+$primary-purple: #bc8add;
+$primary-yellow: #bf9956;

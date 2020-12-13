@@ -1,3 +1,5 @@
+@import "../../theme.scss";
+
 .skillContainer {
   padding: 8%;
 }
@@ -12,15 +14,15 @@
 
 .skillTiles {
   .l {
-    color: #bc8add;
+    color: $primary-purple;
   }
   .fnl {
-    color: #94af6f;
+    color: $primary-green;
   }
   .tnm {
-    color: #67a7c1;
+    color: $primary-blue;
   }
   .o {
-    color: #bf9956;
+    color: $primary-yellow;
   }
 }
