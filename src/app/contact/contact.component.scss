@@ -1,10 +1,12 @@
+@import "../../theme.scss";
+
 .contactContainer {
   padding: 2%;
   margin-top: 12vw;
   height: 40vh;
   width: 59vw;
   max-width: 800px;
-  color: white;
+  color: $white;
 }
 
 #contactTypeWriter {
@@ -12,23 +14,23 @@
 }
 
 mat-label {
-  color: white;
+  color: $white;
 }
 
 .name .mat-form-field-flex {
-  background: #297dca;
+  background: $primary-blue;
 }
 
 .email .mat-form-field-flex {
-  background: linear-gradient(#297dca, #4ace86);
+  background: linear-gradient( $primary-blue,  $primary-green);
 }
 
 .message .mat-form-field-flex {
-  background: #4ace86;
+  background: $primary-green;
 }
 
 .mat-placeholder-required {
-  color: white !important;
+  color: $white !important;
 }
 
 .mat-focused .mat-form-field-label {

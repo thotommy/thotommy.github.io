@@ -1,10 +1,12 @@
+@import "../../../../theme.scss";
+
 .tile-container {
   margin: 20px;
   min-width: 100px;
   min-height: 100px;
   padding: 30px;
-  background: linear-gradient(#297dca, #4ace86);
-  color: black;
+  background: linear-gradient( $primary-blue,  $primary-green);
+  color: $black;
   font-weight: 500;
   font-size: medium;
   border-radius: 5px;
@@ -16,7 +18,7 @@
   min-width: 100px;
   min-height: 100px;
   padding: 30px;
-  background-color: #303030;
+  background-color: $hover-black;
   font-weight: 500;
   font-size: medium;
   opacity: 0.7;
