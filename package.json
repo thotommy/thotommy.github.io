@@ -6,6 +6,8 @@
     "config": "ts-node ./scripts/set-env.ts",
     "start": "npm run config -- --environment=dev && ng serve",
     "build": "npm run config -- --environment=prod && ng build",
+    "build-prod": "npm run config -- --environment=prod && ng build --prod --base-href thotommy.github.io",
+    "deploy": "npm run config -- --environment=prod && ng build --prod --base-href thotommy.github.io && ngh",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -39,6 +41,7 @@
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.12.54",
+    "angular-cli-ghpages": "^1.0.0-rc.1",
     "codelyzer": "^5.1.2",
     "dotenv": "^8.2.0",
     "jasmine-core": "~3.5.0",
