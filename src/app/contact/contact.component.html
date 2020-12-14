@@ -1,6 +1,6 @@
 <div fxLayoutAlign="center">
   <form class="contactContainer">
-    <h1 #contactTypeWriter id="contactTypeWriter" style="margin-bottom: 40px;">$</h1>
+    <h1 #contactTypeWriter id="contactTypeWriter">$</h1>
     <div gdColumns="1 1fr" gdGap="14px" animateElement="fadeInLeft" speed="fast" delay="600" aos>
       <div style="position: absolute; left: -5000px;">
         <input type="checkbox" name="ultimate_chiffon_pinstriped_dolphin" value="1" tabindex="-1" autocomplete="off">
@@ -17,7 +17,7 @@
           <mat-label>Message</mat-label>
           <textarea matInput [(ngModel)]="message" name="message" rows="5" cols="50" style="resize: none;" autocomplete="off" ></textarea>
       </mat-form-field>
-      <div style="padding-bottom: 80px; justify-self: right;">
+      <div class="submitButton">
         <button mat-button (click)="sendMessage()">Submit</button>
       </div>
     </div>
