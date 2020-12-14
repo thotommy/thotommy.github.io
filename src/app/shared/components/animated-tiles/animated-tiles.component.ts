@@ -32,12 +32,14 @@ export class AnimatedTilesComponent implements OnInit {
   toolDataDisplay: string[] = [];
   showTechPanel = false;
   state: FadeState = 'hidden';
+  isMobile: boolean;
 
   constructor() {}
 
   ngOnInit(): void {
+    this.isMobile = 'ontouchstart' in document.documentElement;
     // If mobile device then just leave it visible.
-    if ('ontouchstart' in document.documentElement) {
+    if (this.isMobile) {
       this.state = 'visible';
     }
     this.retrieveToolImages();
