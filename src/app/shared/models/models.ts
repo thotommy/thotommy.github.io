@@ -12,3 +12,9 @@ export class Skills {
   toolsMethods: string[];
   others: string[];
 }
+
+export class SubmitContactRequest {
+  name: string;
+  email: string;
+  message: string;
+}

@@ -1,7 +1,9 @@
 import { AfterViewInit, Component, HostListener, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { CheckViewPortService } from '../shared/services/check-view-port.service';
 import Typewriter from 't-writer.js';
-import { ApiClientService } from '../portfolio-api/api.client.service';
+import { PortfolioApiService } from '../portfolio-api/portfolio-api.service';
+import { SubmitContactRequest } from '../shared/models/models';
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -17,7 +19,7 @@ export class ContactComponent implements OnInit, AfterViewInit {
   public email: string = null;
   public message: string = null;
 
-  constructor(private checkViewPortService: CheckViewPortService, private apiService: ApiClientService) {}
+  constructor(private checkViewPortService: CheckViewPortService, private apiService: PortfolioApiService) {}
 
   ngOnInit(): void {}
 
@@ -41,15 +43,26 @@ export class ContactComponent implements OnInit, AfterViewInit {
   }
 
   sendMessage() {
-    this.apiService
-      .post<any>('https://app.99inbound.com/api/e/Mh5it6ec', {
-        name: this.username,
-        email: this.email,
-        message: this.message,
-      })
-      .subscribe((data) => {
-        console.log(`data = ${JSON.stringify(data)}`);
-      });
+    const req = { name: this.username, email: this.email, message: this.message } as SubmitContactRequest;
+    this.apiService.submitContactInfo(req).subscribe(
+      (data) => {
+        console.log('Contacted');
+        alert('Thanks for the submission');
+        this.clearSubmit();
+      },
+      (err) => {
+        console.log('Contacted');
+        alert('Thanks for the submission');
+        this.clearSubmit();
+      }
+    );
+  }
+
+  clearSubmit() {
+    window.scrollTo(0, 0);
+    this.username = '';
+    this.email = '';
+    this.message = '';
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
