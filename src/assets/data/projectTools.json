@@ -2,5 +2,9 @@
   {
     "project": "New-Beach-Nourishment",
     "tools": ["node", "express", "handlebars"]
+  },
+  {
+    "project": "thotommy.github.io",
+    "tools": ["angular"]
   }
 ]

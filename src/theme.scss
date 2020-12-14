@@ -1,10 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/theming';
 
-
 @include mat-core();
 
-// Default Theming 
+// Default Theming
 $port-app-primary: mat-palette($mat-grey);
 $port-app-accent: mat-palette($mat-grey, A200, A100, A400);
 $port-app-warn: mat-palette($mat-red);
@@ -23,6 +22,9 @@ $secondary-black: rgb(36, 36, 36);
 $hover-black: #303030;
 
 $primary-blue: #67a7c1;
-$primary-green:  #94af6f;
+$primary-green: #94af6f;
 $primary-purple: #bc8add;
 $primary-yellow: #bf9956;
+
+$tile-blue: #297dca;
+$tile-green: #4ace86;
