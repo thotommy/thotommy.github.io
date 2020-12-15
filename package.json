@@ -8,6 +8,7 @@
     "build": "npm run config -- --environment=prod && ng build",
     "build-prod": "npm run config -- --environment=prod && ng build --prod",
     "deploy": "npm run config -- --environment=prod && ng build --prod && ngh --branch=master",
+    "build-deploy": "ngh --branch=master",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
