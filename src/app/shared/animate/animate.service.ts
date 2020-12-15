@@ -30,6 +30,7 @@ export function runInZone<T>(zone: NgZone): OperatorFunction<T, T> {
 })
 export class AnimateService {
   private view$: Observable<ClientRect>;
+  isMobile: boolean;
 
   // By default, use the viewport rectangle
   protected get viewRect(): ClientRect {
@@ -86,9 +87,9 @@ export class AnimateService {
       map((view) => {
         // TODO:TH Work around viewport is making the top have negative number and bottom subtracted of top number
         // when window resized. Doing it this way will fix this for the time being.
-        if(view.top < 0) {
-            view.bottom = Math.abs(view.top);
-            view.top = 0;
+        if (view.top < 0) {
+          view.bottom = Math.abs(view.top);
+          view.top = 0;
         }
         // Gets the element's bounding rect
         const rect = elm && elm.nativeElement && elm.nativeElement.getBoundingClientRect();

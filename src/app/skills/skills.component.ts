@@ -32,24 +32,20 @@ export class SkillsComponent implements OnInit, AfterViewInit {
       animateCursor: true,
       cursorColor: 'white',
       typeSpeed: 40,
-      deleteSpeed:0
+      deleteSpeed: 0,
     });
 
-    this.isTitleVisible = writer2
-      .type('cd Skills')
-      .queueClearText()
-      .type('Skills');
+    this.isTitleVisible = writer2.type('cd Skills').queueClearText().type('Skills');
   }
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event) {
     const inViewPort = this.checkViewPortService.IsElementInViewPort(this.skillTypeWriter);
-    if(!this.isTitleVisibleCounter && inViewPort) {
-      console.log('skill title is visible');
+    if (!this.isTitleVisibleCounter && inViewPort) {
       this.isTitleVisibleCounter = true;
       this.isTitleVisible.start();
-    } 
-    if(!inViewPort) {
+    }
+    if (!inViewPort) {
       this.isTitleVisibleCounter = false;
     }
   }
