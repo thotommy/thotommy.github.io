@@ -1,8 +1,8 @@
 <div
   [ngClass]="{
-    'tile-container': state === 'hidden',
+    'tile-container': !isMobile && state === 'hidden',
     'tile-container-mobile': isMobile && state === 'visible',
-    'tile-container-hover': state === 'visible' && !isMobile
+    'tile-container-hover': !isMobile && state === 'visible' 
   }"
   (click)="onNavigate()"
   (mouseover)="this.state = 'visible'"
