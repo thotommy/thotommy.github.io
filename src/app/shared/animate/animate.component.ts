@@ -123,9 +123,14 @@ export class AnimateComponent implements OnInit, OnDestroy {
     this.done.emit();
   }
 
-  constructor(private elm: ElementRef, private scroll: AnimateService) {}
+  constructor(private elm: ElementRef, private scroll: AnimateService) {
+    scroll.isMobile = 'ontouchstart' in document.documentElement;
+  }
 
   private get idle() {
+    if (this.scroll.isMobile) {
+      return null;
+    }
     return { value: `idle-${this.animate}` };
   }
   private get play() {
@@ -138,33 +143,39 @@ export class AnimateComponent implements OnInit, OnDestroy {
       params.delay = this.delay;
     }
 
+    // Turns off animations if on mobile
+    if (this.scroll.isMobile) {
+      this.animate = null;
+    }
     return { value: this.animate, params };
   }
 
   ngOnInit() {
-    // Sets the idle state for the given animation
-    this.trigger = this.idle;
-    // Triggers the animation based on the input flags
-    this.sub = this.replay$
-      .pipe(
-        // Waits the next round to re-trigger
-        delay(0),
-        // Triggers immediately when not paused
-        startWith(!this.paused),
-        // Builds the AOS observable from the common service
-        this.scroll.trigger(this.elm, this.threshold),
-        // Stops after the first on trigger when 'once' is set
-        takeWhile((triggerTake) => !triggerTake || !this.once, true),
-        // Maps the trigger into animation states
-        map((triggerAnimationValue) => (triggerAnimationValue ? this.play : this.idle)),
-        // Always start with idle
-        startWith(this.idle),
-        // Eliminates multiple triggers
-        distinctUntilChanged()
-      )
-      .subscribe((triggerResp) => {
-        this.trigger = triggerResp;
-      });
+    if (!this.scroll.isMobile) {
+      // Sets the idle state for the given animation
+      this.trigger = this.idle;
+      // Triggers the animation based on the input flags
+      this.sub = this.replay$
+        .pipe(
+          // Waits the next round to re-trigger
+          delay(0),
+          // Triggers immediately when not paused
+          startWith(!this.paused),
+          // Builds the AOS observable from the common service
+          this.scroll.trigger(this.elm, this.threshold),
+          // Stops after the first on trigger when 'once' is set
+          takeWhile((triggerTake) => !triggerTake || !this.once, true),
+          // Maps the trigger into animation states
+          map((triggerAnimationValue) => (triggerAnimationValue ? this.play : this.idle)),
+          // Always start with idle
+          startWith(this.idle),
+          // Eliminates multiple triggers
+          distinctUntilChanged()
+        )
+        .subscribe((triggerResp) => {
+          this.trigger = triggerResp;
+        });
+    }
   }
 
   ngOnDestroy() {

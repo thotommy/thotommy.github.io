@@ -1,11 +1,12 @@
-@import "../../theme.scss";
+@import '../../theme.scss';
 
 .skillContainer {
   padding: 8%;
 }
 
 .tilesPanel {
-  justify-items: center;
+  justify-items: left;
+  margin-left: 3%;
 }
 
 #skillTypeWriter {

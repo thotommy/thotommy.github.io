@@ -77,7 +77,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit, OnDestroy {
   onScroll(event) {
     const inViewPort = this.checkViewPortService.IsElementInViewPort(this.projectTypeWriter);
     if (!this.isTitleVisible2Counter && inViewPort) {
-      console.log('project title is visible');
       this.isTitleVisible2Counter = true;
       this.isTitleVisible2.start();
     }
