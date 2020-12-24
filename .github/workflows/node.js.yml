@@ -29,6 +29,9 @@ jobs:
         run: |
           npm ci
           npm run build-prod
-
-      # - name: Deploy Portfolio
-      #   run: npm run deploy
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: master
+          FOLDER: ../dist
