@@ -6,12 +6,19 @@
         <input type="checkbox" name="ultimate_chiffon_pinstriped_dolphin" value="1" tabindex="-1" autocomplete="off">
       </div>
       <mat-form-field appearance="fill" class="name">
-          <mat-label>Name</mat-label>
-          <input matInput [(ngModel)]="username" name="username" required autocomplete="off" /> 
+          <mat-label [ngStyle]=
+          "{'color': nameValidation.touched && nameValidation.errors?.required ? 
+            'red' : 'white'}">Name</mat-label>
+          <input matInput #nameValidation="ngModel" [(ngModel)]="username" name="username" required autocomplete="off" /> 
       </mat-form-field>
       <mat-form-field appearance="fill" class="email">
-          <mat-label>Email</mat-label>
-          <input matInput [(ngModel)]="email" name="email" required autocomplete="off" />
+          <mat-label [ngStyle]=
+            "{'color': emailValidation.touched && 
+              (emailValidation.errors?.required || emailValidation.errors?.pattern) ? 
+              'red' : 'white'}" >Email</mat-label>
+          <input matInput #emailValidation="ngModel" 
+            [(ngModel)]="email" name="email" 
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="off" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="message">
           <mat-label>Message</mat-label>
