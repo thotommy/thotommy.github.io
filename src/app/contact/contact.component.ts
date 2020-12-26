@@ -13,6 +13,9 @@ import { SubSink } from 'subsink';
 })
 export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('contactTypeWriter') contactTypeWriter;
+  @ViewChild('emailValidation') emailValidation;
+  @ViewChild('nameValidation') nameValidation;
+
   isTitleVisible: any;
   isTitleVisibleCounter: boolean;
 
@@ -47,6 +50,18 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
 
   sendMessage() {
     const req = { name: this.username, email: this.email, message: this.message } as SubmitContactRequest;
+    if (this.nameValidation.errors && this.emailValidation.errors) {
+      alert('Please enter your name and email.');
+      return;
+    }
+    if (this.nameValidation.errors && !this.emailValidation.errors) {
+      alert('Please enter your name.');
+      return;
+    }
+    if (!this.nameValidation.errors && this.emailValidation.errors) {
+      alert('Please enter your email.');
+      return;
+    }
     this.subs.sink = this.apiService.submitContactInfo(req).subscribe(
       (data) => {
         console.log('Contacted');
