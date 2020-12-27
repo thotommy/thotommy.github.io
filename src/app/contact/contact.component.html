@@ -18,7 +18,7 @@
               'red' : 'white'}" >Email</mat-label>
           <input matInput #emailValidation="ngModel" 
             [(ngModel)]="email" name="email" 
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required autocomplete="off" />
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required autocomplete="off" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="message">
           <mat-label>Message</mat-label>
