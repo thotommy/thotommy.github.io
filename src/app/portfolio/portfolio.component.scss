@@ -59,8 +59,9 @@
 }
 
 .portfolio {
-  background-color: $black !important;
+  background-color: $portfolio-black !important;
   background-image: url('../../assets/images/Terminal.svg');
+  background-size: 100vw 100vh;
   background-repeat: no-repeat;
 }
 
