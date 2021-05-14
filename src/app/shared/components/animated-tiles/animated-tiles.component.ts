@@ -70,6 +70,12 @@ export class AnimatedTilesComponent implements OnInit {
       case 'angular':
         this.toolDataDisplay.push('/assets/images/logos/angular.svg');
         break;
+      case 'react':
+        this.toolDataDisplay.push('/assets/images/logos/react.svg');
+        break;
+      case 'c#':
+        this.toolDataDisplay.push('/assets/images/logos/csharp.svg');
+        break;
       default:
         return '';
     }
