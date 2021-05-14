@@ -6,5 +6,9 @@
   {
     "project": "thotommy.github.io",
     "tools": ["angular"]
+  },
+  {
+    "project": "Rename-TVDB",
+    "tools": ["react", "c#"]
   }
 ]
