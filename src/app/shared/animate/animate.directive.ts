@@ -36,7 +36,7 @@ export class AnimateDirective extends AnimateService {
   }
 
   // Overrides the viewport with the element's client rect on request
-  protected get viewRect(): ClientRect {
+  protected get viewRect(): DOMRect {
     // Selects between the viewport and the element
     const rt = this.element ? this.elref.nativeElement.getBoundingClientRect() : this.viewPort.getViewportRect();
     // Applies optional offsets
@@ -46,12 +46,17 @@ export class AnimateDirective extends AnimateService {
     const right = rt.right + coerceNumberProperty(this.right, 0);
     // Returns the resulting rect
     return {
-      top,
-      left,
-      bottom,
-      right,
       height: bottom - top,
       width: right - left,
-    };
+      x: left,
+      y: top
+    } as DOMRect;
+    //   top,
+    //   left,
+    //   bottom,
+    //   right,
+    //   height: bottom - top,
+    //   width: right - left,
+    // };
   }
 }
