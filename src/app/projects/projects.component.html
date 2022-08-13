@@ -8,7 +8,7 @@
     gdGap="16px"
   >
     <div *ngFor="let item of items; let i = index">
-      <div class="projectTiles" #TileId animateElement="{{animations[i % 4]}}" speed="fast" delay="{{ (i + 6) * 100 }}" aos>
+      <div class="projectTiles" #TileId >
         <app-tiles [tileData]="item"></app-tiles>
       </div>
     </div>
