@@ -20,7 +20,7 @@ import { animationSpeed, animationEffect, PlayParameters } from './animate.types
 import { fadeIn } from './entrances/fade-in';
 
 @Component({
-  // tslint:disable-next-line: component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: '[animateElement]',
   template: '<ng-content></ng-content>',
   animations: [trigger('animate', [...fadeIn])],

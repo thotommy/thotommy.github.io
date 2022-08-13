@@ -11,7 +11,7 @@ import { SubSink } from 'subsink';
   styleUrls: ['./contact.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ContactComponent implements  AfterViewInit, OnDestroy {
   @ViewChild('contactTypeWriter') contactTypeWriter;
   @ViewChild('emailValidation') emailValidation;
   @ViewChild('nameValidation') nameValidation;
@@ -26,8 +26,6 @@ export class ContactComponent implements OnInit, AfterViewInit, OnDestroy {
   subs = new SubSink();
 
   constructor(private checkViewPortService: CheckViewPortService, private apiService: PortfolioApiService) {}
-
-  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.typeWrite();

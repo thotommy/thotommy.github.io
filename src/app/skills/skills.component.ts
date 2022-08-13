@@ -7,7 +7,7 @@ import { CheckViewPortService } from '../shared/services/check-view-port.service
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss'],
 })
-export class SkillsComponent implements OnInit, AfterViewInit {
+export class SkillsComponent implements AfterViewInit {
   @ViewChild('skillTypeWriter') skillTypeWriter;
   skillData: Skills = new Skills();
   isTitleVisible: any;
@@ -16,8 +16,6 @@ export class SkillsComponent implements OnInit, AfterViewInit {
   constructor(private checkViewPortService: CheckViewPortService) {
     this.skillData = require('@assets/data/skillset.json');
   }
-
-  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.typeWrite();
