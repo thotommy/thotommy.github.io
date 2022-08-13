@@ -1,6 +1,5 @@
-require('dotenv').config();
 
 export const environment = {
-  production: false,
-  CONTACT_API_URL: process.env.CONTACT_API_URL,
+   production: false,
+   CONTACT_API_URL: "https://app.99inbound.com/api/e/p8dhLiy4",
 };
