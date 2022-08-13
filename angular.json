@@ -95,7 +95,6 @@
       }
     }
   },
-  "defaultProject": "thoSite",
   "cli": {
     "analytics": false
   }
