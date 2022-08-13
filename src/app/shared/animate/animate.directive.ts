@@ -45,13 +45,15 @@ export class AnimateDirective extends AnimateService {
     const bottom = rt.bottom + coerceNumberProperty(this.bottom, 0);
     const right = rt.right + coerceNumberProperty(this.right, 0);
     // Returns the resulting rect
-    return {
-      top,
-      left,
-      bottom,
-      right,
-      height: bottom - top,
-      width: right - left,
-    };
+    //TODO:TH This is broken at this time.
+    return {} as DOMRect;
+    // return {
+    //   top,
+    //   left,
+    //   bottom,
+    //   right,
+    //   height: bottom - top,
+    //   width: right - left,
+    // };
   }
 }
