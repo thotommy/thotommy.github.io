@@ -54,6 +54,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
   }
 
   /** Delays the animation */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('delay') set postpone(delayValue: string) {
     // Coerces the input into a number first
     const value = coerceNumberProperty(delayValue, 0);
@@ -67,11 +68,13 @@ export class AnimateComponent implements OnInit, OnDestroy {
   }
 
   /** Disables the animation */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('disabled') set disableAnimation(value: boolean) {
     this.disabled = coerceBooleanProperty(value);
   }
 
   /** When true, keeps the animation idle until the next replay triggers */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('paused') set pauseAnimation(value: boolean) {
     this.paused = coerceBooleanProperty(value);
   }
@@ -79,12 +82,14 @@ export class AnimateComponent implements OnInit, OnDestroy {
 
   // When defined, triggers the animation on element scrolling in the viewport by the specified amount.
   // Amount defaults to 50% when not specified
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('aos') set enableAOS(value: number) {
     this.threshold = coerceNumberProperty(value, 0.5);
   }
   private threshold = 0;
 
   /** When true, triggers the animation on element scrolling in the viewport */
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('once') set aosOnce(value: boolean) {
     this.once = coerceBooleanProperty(value);
   }
@@ -101,6 +106,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
 
   // Emitters
   /** Emits at the end of the animation */
+  // eslint-disable-next-line @angular-eslint/no-output-native
   @Output() start = new EventEmitter<void>();
   @Output() done = new EventEmitter<void>();
 
