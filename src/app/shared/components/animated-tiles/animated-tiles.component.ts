@@ -76,6 +76,8 @@ export class AnimatedTilesComponent implements OnInit {
       case 'c#':
         this.toolDataDisplay.push('/assets/images/logos/csharp.svg');
         break;
+      case 'python': 
+        this.toolDataDisplay.push('/assets/images/logos/python.svg')
       default:
         return '';
     }

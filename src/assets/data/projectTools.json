@@ -10,5 +10,9 @@
   {
     "project": "Rename-TVDB",
     "tools": ["react", "c#"]
+  },
+  {
+    "project": "BillAutomation",
+    "tools": ["python"]
   }
 ]
