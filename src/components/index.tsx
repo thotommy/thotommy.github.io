@@ -5,7 +5,7 @@ export default function Index(): JSX.Element {
 
   return (
     <div className="flex items-center justify-center gap-x-12">
-     
+        fdsfsf
     </div>
   );
 }
