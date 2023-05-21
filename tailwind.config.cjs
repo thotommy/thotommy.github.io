@@ -2,7 +2,10 @@
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		fontFamily: {
+		  courier: ['Courier', 'monospace'],
+		  /* Add more font families if needed */
+		},
 	},
 	plugins: [],
 }
