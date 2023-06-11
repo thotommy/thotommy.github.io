@@ -17,10 +17,10 @@ export default class Index extends Component {
     // });
 
     // this.isTitleVisible2 = writer2.type('cd Projects').queueClearText().type('Projects');
-  }
+  }       
   render(): JSX.Element {
   return (
-    <div className="flex flex-col items-center justify-center gap-y-10 h-screen font-medium">
+    <div className="flex flex-col items-center justify-center gap-y-10 h-screen font-medium mt-[-4rem]">
         <h1 className="text-5xl md:text-5xl lg:text-6xl xl:text-8xl">Tommy Ho</h1>
         <h2 className="sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl"><Typewriter
             words={['Software Engineer', 'Full Stack Developer', 'Angular Developer']}

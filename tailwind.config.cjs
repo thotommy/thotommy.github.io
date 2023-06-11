@@ -6,6 +6,9 @@ module.exports = {
 			fontSize: {
 				'title': '60px'
 			},
+			padding: {
+				'88': '5.5rem'
+			}
 		},
 		fontFamily: {
 		  courier: ['Courier', 'monospace'],
