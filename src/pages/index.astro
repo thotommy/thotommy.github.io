@@ -1,5 +1,5 @@
 ---
-import Index from '../components/index';
+import IndexComponent from '../components/index';
 ---
 
 <html lang="en">
@@ -14,8 +14,8 @@ import Index from '../components/index';
   <body class="bg-[#121212] text-white font-courier overflow-hidden">
     <div class="h-screen bg-cover bg-no-repeat p-t-20" style="background-image: url('/images/Terminal.svg');">
       <div class="pt-88">
-        <Index client:load />
-
+        <IndexComponent client:load />
+        <slot/>
       </div>
     </div>
   </body>
