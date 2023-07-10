@@ -1,7 +1,9 @@
-import type React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
 
 export const SkillsComponent: React.FC = () => {
+    const [data, setData] = useState(null);
+
     const skillData = {
         intro: 'Introduction text goes here',
         languages: ['Language 1', 'Language 2', 'Language 3'],
@@ -9,6 +11,20 @@ export const SkillsComponent: React.FC = () => {
         toolsMethods: ['Tool 1', 'Method 1', 'Tool 2'],
         others: ['Other 1', 'Other 2', 'Other 3'],
       };
+
+      useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await fetch('/info/skills.json');
+            const jsonData = await response.json();
+            setData(jsonData);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);   
     
     return(
         <div className="flex flex-col gap-5 skillContainer pt-10">
