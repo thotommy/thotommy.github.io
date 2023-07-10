@@ -1,8 +1,8 @@
 import type React from 'react';
 import { Typewriter } from 'react-simple-typewriter'
 
-export const SkillsComponent: React.FC = () => {
+export const ContactComponent: React.FC = () => {
     return(
-       <div>hey</div> 
+       <div>Contact</div> 
     );
 }

@@ -1,24 +1,9 @@
-import React, { Component, useState } from 'react';
+import type React from 'react';
 import { Typewriter } from 'react-simple-typewriter'
 
-export default class Index extends Component {
+export const MainTitleScreen: React.FC = () => {
   // const [count, setCount] = useState<number>(0);
 
-    typeWrite() {
-    // const target2 = this.projectTypeWriter.nativeElement;
-    // console.log(target2);
-    // const writer2 = new Typewriter(target2, {
-    //   loop: false,
-    //   typeColor: 'white',
-    //   animateCursor: true,
-    //   cursorColor: 'white',
-    //   typeSpeed: 40,
-    //   deleteSpeed: 0,
-    // });
-
-    // this.isTitleVisible2 = writer2.type('cd Projects').queueClearText().type('Projects');
-  }       
-  render(): JSX.Element {
   return (
     <div className="flex flex-col items-center justify-center gap-y-10 h-screen font-medium mt-[-4rem]">
         <h1 className="text-5xl md:text-5xl lg:text-6xl xl:text-8xl">Tommy Ho</h1>
@@ -33,5 +18,4 @@ export default class Index extends Component {
           /></h2>
     </div>
   );
-  }
 }
