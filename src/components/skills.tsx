@@ -27,7 +27,7 @@ export const SkillsComponent: React.FC = () => {
       }, []);   
     
     return(
-        <div className="flex flex-col gap-5 skillContainer pt-10">
+        <div className="flex flex-col gap-5 skillContainer">
         <h1 id="skillTypeWriter">$</h1>
         <div className="skillIntro grid grid-rows-1 grid-flow-row">
           {skillData.intro}

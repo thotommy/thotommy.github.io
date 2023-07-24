@@ -7,7 +7,7 @@ module.exports = {
 				'title': '60px'
 			},
 			padding: {
-				'55p': '55px'
+				'105p': '105px'
 			}
 		},
 		fontFamily: {
