@@ -28,7 +28,19 @@ export const SkillsComponent: React.FC = () => {
     
     return(
         <div className="flex flex-col gap-5 skillContainer">
-        <h1 id="skillTypeWriter">$</h1>
+        {/* <h1 id="skillTypeWriter">$</h1> */}
+        <h1 className="text-2xl">
+        <Typewriter
+            words={['$Skills']}
+            loop={1}
+            cursor
+            cursorStyle='|'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            
+          />
+        </h1>
         <div className="skillIntro grid grid-rows-1 grid-flow-row">
           {skillData.intro}
         </div>
