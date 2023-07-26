@@ -3,6 +3,16 @@ import { Typewriter } from 'react-simple-typewriter'
 
 export const ContactComponent: React.FC = () => {
     return(
-       <div>Contact</div> 
+        <h1 className="text-2xl">
+        <Typewriter
+            words={['$Contact']}
+            loop={1}
+            cursor
+            cursorStyle='|'
+            typeSpeed={30}
+            deleteSpeed={50}
+            delaySpeed={1000}          
+          />
+        </h1>
     );
 }

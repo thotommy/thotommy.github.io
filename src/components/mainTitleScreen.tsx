@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
+import { NavComponent } from './nav';
 
 export const MainTitleScreen: React.FC = () => {
   const [showBouncingDiv, setShowBouncingDiv] = useState(true);
@@ -48,13 +49,7 @@ export const MainTitleScreen: React.FC = () => {
             }
           }}
           onMouseLeave={handleNavigationMouseLeave}>
-            <nav>
-              <ul className="flex space-x-4">
-                <li><a href="projects">Projects</a></li>
-                <li><a href="skills">Skills</a></li>
-                <li><a href="contact">Contact</a></li>
-              </ul>
-            </nav>
+            <NavComponent></NavComponent>
           </div>
         )}
       </div>
