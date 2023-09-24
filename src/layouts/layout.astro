@@ -8,10 +8,15 @@
     <title>Tommy Ho | Software Engineer</title>
   </head>
   <body class="bg-[#121212] text-white font-courier overflow-hidden">
-    <div class="h-screen bg-cover bg-no-repeat p-t-20" style="background-image: url('/images/Terminal.svg');">
-      <div class="pt-105p px-[5%]">
-        <slot/>
-      </div>
+    <div class="flex space-x-4 p-4 pt-8 pl-8">
+      <div class="bg-red-500 rounded-full w-10 h-10"></div>
+      <div class="bg-yellow-500 rounded-full w-10 h-10"></div>
+      <div class="bg-green-500 rounded-full w-10 h-10"></div>
     </div>
+    <div class="pt-105p px-[5%]">
+      <slot/>
+    </div>
+
+
   </body>
 </html>
