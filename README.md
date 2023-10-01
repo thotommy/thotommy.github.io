@@ -45,3 +45,12 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+
+## TODOs
+* Transitions between routes in Astro
+* Router logic to hide the nav at the top when at main screen
+* Improve styling in SKills
+* Add tiles to the Projects
+* Improve styling in Contacts
+* Clean up of pages
