@@ -4,9 +4,10 @@ export const NavComponent: React.FC = () => {
     return(
         <nav>
         <ul className="flex space-x-4">
-          <li><a href="skills">Skills</a></li>
-          <li><a href="projects">Projects</a></li>
-          <li><a href="contact">Contact</a></li>
+          <li className="hover:underline"><a href="/">Home</a></li>          
+          <li className="hover:underline"><a href="skills">Skills</a></li>
+          <li className="hover:underline"><a href="projects">Projects</a></li>
+          <li className="hover:underline"><a href="contact">Contact</a></li>
         </ul>
       </nav>
     );
