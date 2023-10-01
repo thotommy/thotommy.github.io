@@ -1,5 +1,7 @@
 ---
 import { NavComponent } from "../components/nav";
+import { ViewTransitions } from 'astro:transitions';
+const { showNav } = Astro.props;
 
 ---
 
@@ -11,6 +13,7 @@ import { NavComponent } from "../components/nav";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Tommy Ho | Software Engineer</title>
+    <ViewTransitions></ViewTransitions>
   </head>
   <body class="bg-[#121212] text-white font-courier">
     <div class="flex justify-between">
@@ -20,7 +23,7 @@ import { NavComponent } from "../components/nav";
         <div class="bg-green-500 rounded-full w-10 h-10"></div>
       </div>
       <div class="p-4 pt-8 pl-8">
-        <NavComponent></NavComponent>
+        {showNav === "true" && <NavComponent></NavComponent>}
       </div>
       
     </div>

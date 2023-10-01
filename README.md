@@ -48,8 +48,6 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 
 ## TODOs
-* Transitions between routes in Astro
-* Router logic to hide the nav at the top when at main screen
 * Improve styling in Skills
 * Add tiles to the Projects
 * Improve styling in Contacts
