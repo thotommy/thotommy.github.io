@@ -17,7 +17,7 @@ export const ContactComponent: React.FC = () => {
         <form className="contactContainer">
         <h1 className="text-2xl">
     <Typewriter
-        words={['$Contact']}
+        words={['$Contact Me']}
         loop={1}
         cursor
         cursorStyle='|'

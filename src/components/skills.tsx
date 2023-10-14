@@ -44,7 +44,7 @@ export const SkillsComponent: React.FC = () => {
         <div className="skillIntro grid grid-rows-1 grid-flow-row">
           {data.intro}
         </div>
-        <div className="tilesPanel grid grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-x-4 gap-y-4">
+        <div className="tilesPanel grid sm:grid-cols-4 xs:grid-cols-1 gap-x-4 gap-y-10">
           <div className="skillTiles">
             <h2><strong>Languages</strong></h2>
             <ul className="l">
