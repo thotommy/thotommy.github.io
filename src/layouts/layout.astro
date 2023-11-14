@@ -16,20 +16,24 @@ const { showNav } = Astro.props;
     <ViewTransitions></ViewTransitions>
   </head>
   <body class="bg-[#121212] text-white font-courier">
-    <div class="flex justify-between">
-      <div class="flex space-x-4 p-4 pt-8 pl-8">
-        <div class="bg-red-500 rounded-full w-10 h-10"></div>
-        <div class="bg-yellow-500 rounded-full w-10 h-10"></div>
-        <div class="bg-green-500 rounded-full w-10 h-10"></div>
+    <!--md:border md:border-white md:p-4 -->
+    <div class=" m-0 md:mx-20 md:mt-5 md:h-[calc(100vh-110px)] md:bg-[#1A1C22]">
+      <div class="flex justify-between">
+        <div class="flex space-x-4 p-4 pt-4 pl-4">
+          <div class="bg-red-500 rounded-full w-5 h-5"></div>
+          <div class="bg-yellow-500 rounded-full w-5 h-5"></div>
+          <div class="bg-green-500 rounded-full w-5 h-5"></div>
+        </div>
+        <div class="p-4 pt-8 pl-8">
+          {showNav === "true" && <NavComponent></NavComponent>}
+        </div>
+        
       </div>
-      <div class="p-4 pt-8 pl-8">
-        {showNav === "true" && <NavComponent></NavComponent>}
+      <div class="pt-90p px-[5%]">
+        <slot/>
       </div>
-      
     </div>
-    <div class="pt-90p px-[5%]">
-      <slot/>
-    </div>
+    
 
 
   </body>
