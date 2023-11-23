@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter'
+import { Tile } from './tiles';
 
 export const ProjectsComponent: React.FC = () => {
     const [responseText, setResponseText] = useState([{
@@ -29,25 +30,22 @@ export const ProjectsComponent: React.FC = () => {
 
     return(
         <div>
-        <h1 className="text-2xl">
-                <Typewriter
-                    words={['$Projects']}
-                    loop={1}
-                    cursor
-                    cursorStyle='|'
-                    typeSpeed={30}
-                    deleteSpeed={50}
-                    delaySpeed={1000}
-                />
-                </h1>
-                <div className="tile-container">
-                {responseText.map((proj, index) => (
-                <div key={index} className="tile">
-                    <h3>{proj.name}</h3>
-                    <p>{proj.html_url}</p>
-                </div>
-                ))}
-            </div>
+          <h1 className="text-2xl">
+            <Typewriter
+                words={['$Projects']}
+                loop={1}
+                cursor
+                cursorStyle='|'
+                typeSpeed={30}
+                deleteSpeed={50}
+                delaySpeed={1000}
+            />
+          </h1>
+          <div className="tile-container flex flex-wrap left-align p-10">
+            {responseText.map((proj, index) => (
+              <Tile ind={index} title={proj.name} content={proj.html_url}></Tile>
+            ))}
+          </div>
         </div>
         
     );

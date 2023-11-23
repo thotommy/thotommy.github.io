@@ -1,18 +1,22 @@
 [
     {
       "project": "New-Beach-Nourishment",
-      "tools": ["node", "express", "handlebars"]
+      "tools": ["node", "express", "handlebars"],
+      "hide": false
     },
     {
       "project": "thotommy.github.io",
-      "tools": ["angular"]
+      "tools": ["angular"],
+      "hide": false
     },
     {
       "project": "Rename-TVDB",
-      "tools": ["react", "c#"]
+      "tools": ["react", "c#"],
+      "hide": false
     },
     {
       "project": "BillAutomation",
-      "tools": ["python"]
+      "tools": ["python"],
+      "hide": false
     }
   ]

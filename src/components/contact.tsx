@@ -12,21 +12,20 @@ export const ContactComponent: React.FC = () => {
     };
 
     return(
-        <div className="flex justify-center">
-
+      <div className="flex justify-center">
         <form className="contactContainer">
-        <h1 className="text-2xl">
-    <Typewriter
-        words={['$Contact Me']}
-        loop={1}
-        cursor
-        cursorStyle='|'
-        typeSpeed={30}
-        deleteSpeed={50}
-        delaySpeed={1000}          
-      />
-    </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <h1 className="text-2xl">
+            <Typewriter
+                words={['$Contact Me']}
+                loop={1}
+                cursor
+                cursorStyle='|'
+                typeSpeed={30}
+                deleteSpeed={50}
+                delaySpeed={1000}          
+              />
+          </h1>
+          <div className="grid grid-cols-1 gap-4">
             <div className="hidden">
               <input
                 type="checkbox"
@@ -70,9 +69,9 @@ export const ContactComponent: React.FC = () => {
                 autoComplete="off"
               ></textarea>
             </div>
-            <div className="col-span-2 text-center">
+            <div className="text-center">
               <button
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className="text-xl text-white px-4 py-2 rounded hover:underline"
                 onClick={sendMessage}
                 type="button"
               >
