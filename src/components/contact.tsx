@@ -12,9 +12,8 @@ export const ContactComponent: React.FC = () => {
     };
 
     return(
-      <div className="flex justify-center">
-        <form className="contactContainer">
-          <h1 className="text-2xl">
+      <div className="">
+        <h1 className="text-2xl">
             <Typewriter
                 words={['$Contact Me']}
                 loop={1}
@@ -24,7 +23,8 @@ export const ContactComponent: React.FC = () => {
                 deleteSpeed={50}
                 delaySpeed={1000}          
               />
-          </h1>
+        </h1>
+        <form className="contactContainer flex justify-center mt-10">  
           <div className="grid grid-cols-1 gap-4">
             <div className="hidden">
               <input

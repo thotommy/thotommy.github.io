@@ -41,7 +41,7 @@ export const ProjectsComponent: React.FC = () => {
                 delaySpeed={1000}
             />
           </h1>
-          <div className="tile-container flex flex-wrap left-align p-10">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {responseText.map((proj, index) => (
               <Tile ind={index} title={proj.name} content={proj.html_url}></Tile>
             ))}
