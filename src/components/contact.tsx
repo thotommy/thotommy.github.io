@@ -5,14 +5,23 @@ export const ContactComponent: React.FC = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [showTooltip, setShowTooltip] = useState(false);
+
   
     const sendMessage = () => {
       // Implement your logic to send the message here
       console.log('Message sent:', { username, email, message });
+      setUsername('')
+      setEmail('')
+      setMessage('')
+      setShowTooltip(true);
+      setTimeout(() => {
+        setShowTooltip(false);
+      }, 2000); // Adjust the time as needed (e.g., 2000 milliseconds = 2 seconds)
     };
 
     return(
-      <div className="">
+      <div className="relative">
         <h1 className="text-2xl">
             <Typewriter
                 words={['$Contact Me']}
@@ -36,9 +45,9 @@ export const ContactComponent: React.FC = () => {
               />
             </div>
             <div className="w-full">
-              <label className="text-white">Name</label>
+              <label className="text-accentPurple">Name</label>
               <input
-                className="w-full bg-white"
+                className="w-full text-gray-700 bg-slate-200"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -47,9 +56,9 @@ export const ContactComponent: React.FC = () => {
               />
             </div>
             <div className="w-full">
-              <label className="text-white">Email</label>
+              <label className="text-accentGreen">Email</label>
               <input
-                className="w-full bg-white"
+                className="w-full text-gray-700 bg-slate-200"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -59,9 +68,9 @@ export const ContactComponent: React.FC = () => {
               />
             </div>
             <div className="w-full">
-              <label className="text-white">Message</label>
+              <label className="text-accentBlue">Message</label>
               <textarea
-                className="w-full bg-white resize-none"
+                className="w-full text-gray-700 bg-slate-200 resize-none"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={5}
@@ -80,6 +89,11 @@ export const ContactComponent: React.FC = () => {
             </div>
           </div>
         </form>
+        {showTooltip && (
+          <div className="tooltip text-center right-0 bg-opacity-40 bg-blur-md bg-green-200 hover:bg-green-500 bg-clip-padding backdrop-filter backdrop-blur-md border border-gray-200 rounded-md shadow-lg p-6">
+            Submitted!
+          </div>
+        )}
       </div>
     );
   };

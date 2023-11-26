@@ -46,7 +46,7 @@ export const SkillsComponent: React.FC = () => {
         </div>
         <div className="tilesPanel grid sm:grid-cols-4 xs:grid-cols-1 gap-x-4 gap-y-10">
           <div className="skillTiles">
-            <h2><strong>Languages</strong></h2>
+            <h2 className="underline text-accentPurple"><strong>Languages</strong></h2>
             <ul className="l">
               {data.languages.map((language, index) => (
                 <li key={index}>{language}</li>
@@ -54,7 +54,7 @@ export const SkillsComponent: React.FC = () => {
             </ul>
           </div>
           <div className="skillTiles">
-            <h2><strong>Frameworks &amp; Libs</strong></h2>
+            <h2 className="underline text-accentGreen"><strong>Frameworks &amp; Libs</strong></h2>
             <ul className="fnl">
               {data.frameworksLibraries.map((fL, index) => (
                 <li key={index}>{fL}</li>
@@ -62,7 +62,7 @@ export const SkillsComponent: React.FC = () => {
             </ul>
           </div>
           <div className="skillTiles">
-            <h2><strong>Tools &amp; Methods</strong></h2>
+            <h2 className="underline text-accentBlue"><strong>Tools &amp; Methods</strong></h2>
             <ul className="tnm">
               {data.toolsMethods.map((sT, index) => (
                 <li key={index}>{sT}</li>
@@ -70,7 +70,7 @@ export const SkillsComponent: React.FC = () => {
             </ul>
           </div>
           <div className="skillTiles">
-            <h2><strong>Others</strong></h2>
+            <h2 className="underline text-accentYellow"><strong>Others</strong></h2>
             <ul className="o">
               {data.others.map((other, index) => (
                 <li key={index}>{other}</li>
