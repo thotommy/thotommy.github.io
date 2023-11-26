@@ -90,7 +90,7 @@ export const ContactComponent: React.FC = () => {
           </div>
         </form>
         {showTooltip && (
-          <div className="tooltip text-center right-0 bg-opacity-40 bg-blur-md bg-green-200 hover:bg-green-500 bg-clip-padding backdrop-filter backdrop-blur-md border border-gray-200 rounded-md shadow-lg p-6">
+          <div className="tooltip text-center right-0 bg-opacity-40 bg-blur-md bg-green-200 bg-clip-padding backdrop-filter backdrop-blur-md border border-gray-200 rounded-md shadow-lg p-6">
             Submitted!
           </div>
         )}
