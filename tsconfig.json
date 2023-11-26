@@ -1,25 +1,7 @@
 {
-  "compileOnSave": false,
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "~/*": ["*", "generated/*"],
-      "@app/*": ["src/app/*"],
-      "@assets/*": ["src/assets/*"]
-    },
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2020",
-    "lib": ["es2018", "dom"]
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

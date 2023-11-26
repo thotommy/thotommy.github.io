@@ -1,0 +1,42 @@
+---
+import { NavComponent } from "../components/nav";
+import { ViewTransitions } from 'astro:transitions';
+const { showNav } = Astro.props;
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@master/devicon.min.css" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tommy Ho | Software Engineer</title>
+    <ViewTransitions></ViewTransitions>
+  </head>
+  <!--bg-[url('public/images/')] -->
+  <!--bg-[#121212] text-white font-courier -->
+  <!--bg-gradient-to-b from-[#67a7c1] to-[#94af6f] from-purple-600 to-blue-600-->
+  <body class="bg-gradient-to-b from-[#0a0a0a] to-[#262626] min-h-screen md:overflow-hidden text-white font-courier">
+    <div class="overflow-auto m-0 md:mx-20 md:mt-5 md:h-[calc(100vh-110px)] md:bg-opacity-20 md:bg-gray-700 md:backdrop-filter md:backdrop-blur-lg md:border md:border-opacity-20 md:border-gray-300 md:rounded-md">
+      <div class="flex justify-between">
+        <div class="flex space-x-4 p-4 pt-4 pl-4">
+          <div class="bg-red-500 rounded-full w-5 h-5"></div>
+          <div class="bg-yellow-500 rounded-full w-5 h-5"></div>
+          <div class="bg-green-500 rounded-full w-5 h-5"></div>
+        </div>
+        <div class="p-4 pt-8 pl-8">
+          {showNav === "true" && <NavComponent></NavComponent>}
+        </div>
+        
+      </div>
+      <div class="pt-90p px-[5%]">
+        <slot/>
+      </div>
+    </div>
+    
+
+
+  </body>
+</html>

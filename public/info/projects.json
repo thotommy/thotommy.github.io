@@ -1,0 +1,22 @@
+[
+    {
+      "name": "New-Beach-Nourishment",
+      "tools": ["node", "handlebars"],
+      "hide": false
+    },
+    {
+      "name": "thotommy.github.io",
+      "tools": ["react"],
+      "hide": false
+    },
+    {
+      "name": "Rename-TVDB",
+      "tools": ["react", "c#"],
+      "hide": false
+    },
+    {
+      "name": "BillAutomation",
+      "tools": ["python"],
+      "hide": false
+    }
+  ]
