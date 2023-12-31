@@ -18,5 +18,10 @@
       "name": "BillAutomation",
       "tools": ["python"],
       "hide": false
+    },
+    {
+      "name": "SwagBot",
+      "tools": ["python"],
+      "hide": false
     }
   ]
