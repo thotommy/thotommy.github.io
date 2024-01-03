@@ -23,5 +23,10 @@
       "name": "SwagBot",
       "tools": ["python"],
       "hide": false
+    },
+    {
+      "name": "AutoCoupon",
+      "tools": ["python"],
+      "hide": false
     }
   ]
