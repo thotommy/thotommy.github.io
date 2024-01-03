@@ -23,7 +23,7 @@ export const ProjectsComponent: React.FC = () => {
         const fetchData = async () => {
           try {
             const [response, details] = await Promise.all([
-              fetch('https://api.github.com/users/thotommy/repos'),
+              fetch('https://api.github.com/users/thotommy/repos?sort=created'),
               fetch('/info/projects.json')
             ]);
     
