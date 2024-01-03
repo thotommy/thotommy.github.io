@@ -12,7 +12,7 @@
     {
       "name": "Rename-TVDB",
       "tools": ["react", "c#"],
-      "hide": false
+      "hide": true
     },
     {
       "name": "BillAutomation",
